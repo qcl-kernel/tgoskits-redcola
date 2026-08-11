@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.8.7](https://github.com/rcore-os/tgoskits/compare/ax-cpu-v0.8.6...ax-cpu-v0.8.7) - 2026-08-11
+
+### Other
+
+- updated the following local packages: ax-lazyinit, axbacktrace, ax-percpu
+
 ## [0.8.6](https://github.com/rcore-os/tgoskits/compare/ax-cpu-v0.8.5...ax-cpu-v0.8.6) - 2026-08-09
 
 ### Fixed
