@@ -1,0 +1,3 @@
+label,result,net_mode,linux_workers,linux_vcpus,linux_rt_cpu,linux_stress_cpu,linux_samples,linux_period_ns,linux_mean_ns,linux_p99_ns,linux_max_ns,udp_success,qcz1_success,qcz1_retransmits,qcz1_duplicate_acks,ai_success,ai_e2e_mean_us,ai_e2e_max_us
+isolated-hub-0w-r3000-p10000000-20260821_134314,PASS,hub,0,2,0,1,3000,10000000,2808020,9620384,118127472,20/20,10/10,0,2,10/10,7865,13209
+isolated-hub-2w-r3000-p10000000-20260821_134451,PASS,hub,2,2,0,1,3000,10000000,2166081,4614832,73586592,20/20,10/10,0,2,10/10,8165,14554
