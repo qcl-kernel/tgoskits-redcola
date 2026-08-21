@@ -24,7 +24,7 @@ redcola 当前交付的是一个基于 AxVisor 的 Linux/RTOS 混合部署与智
 - StarryOS 加分：私有 PR `#2`，已保持独立评审范围。
 - 最新同源双 guest：Linux `2` vCPU、UDP `20/20`、QCZ1 `10/10`、AI `10/10`、最终 `result=PASS`。
 - 任务三第二指标：同一批样本下，AI 平均绝对误差 `207` 对固定参数 `240`；`+/-200` 容差达标 `6/10` 对 `0/10`。
-- 预最终包：`78` 个文件，`FINAL_PACKAGE_BUILD=PASS`、`FINAL_PACKAGE_VERIFY=PASS`；最终严格门槛只剩用户配音视频与 PPT/DOCX 一并验证。
+- 预最终包：含 PPTX 和配音 DOCX 共 `79` 个文件，`FINAL_PACKAGE_BUILD=PASS`、`FINAL_PACKAGE_VERIFY=PASS`、`PRESENTATION_STRICT_GATE=PASS`；最终严格门槛只剩用户配音视频验证。
 
 ## 三个任务怎么讲
 

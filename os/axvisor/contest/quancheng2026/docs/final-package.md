@@ -38,18 +38,19 @@ records the exact main branch head used for that build, and the sibling
 intentionally not hard-coded here because any later documentation or video
 refresh changes the archive digest.
 
-The 2026-08-22 clean-head pre-final dry run, before adding the user-narrated
-video, reports:
+The 2026-08-22 clean-head pre-final dry run, with the final presentation and
+narration script but before adding the user-narrated video, reports:
 
 ```text
 Main PR #1 branch: contest/axvisor-2026
 StarryOS PR #2 head: 2ac656341a63facdc3030fa3fd99bd20de156bef
-FINAL_PACKAGE_FILE_COUNT=78
+FINAL_PACKAGE_FILE_COUNT=79
 FINAL_PACKAGE_BUILD=PASS
 FINAL_PACKAGE_VERIFY=PASS
+PRESENTATION_STRICT_GATE=PASS
 Included: current task-one/latest-dev summaries, task-three second-metric
-summary, StarryOS bonus material and reviewer-facing documents
-Pending strict final gate: user-narrated video plus presentation verification
+summary, StarryOS bonus material, reviewer-facing documents, PPTX and DOCX
+Pending strict final gate: user-narrated video verification
 ```
 
 The following entries are retained as historical checkpoint proof points. They
