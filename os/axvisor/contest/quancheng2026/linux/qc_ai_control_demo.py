@@ -125,6 +125,14 @@ def main() -> int:
             f"control_error mean_ai={statistics.fmean(control_error_ai):.3f} "
             f"mean_manual={statistics.fmean(control_error_manual):.3f}"
         )
+        tolerance = 200.0
+        ai_within = sum(error <= tolerance for error in control_error_ai)
+        manual_within = sum(error <= tolerance for error in control_error_manual)
+        print(
+            f"control_tolerance_milli={int(tolerance)} "
+            f"ai_within={ai_within}/{len(control_error_ai)} "
+            f"manual_within={manual_within}/{len(control_error_manual)}"
+        )
 
     return 0 if failures == 0 and successes == args.count and status_ok else 1
 

@@ -429,6 +429,15 @@ def write_markdown(report: dict[str, object], path: Path) -> None:
     lines.extend(
         [
             "",
+            "## Control Quality",
+            "",
+            "The tolerance count uses the same ten input samples for the AI policy and fixed-gain baseline. A sample is in tolerance when its absolute output error is no greater than the reported milliunit threshold.",
+            "",
+            "| Measurement | AI policy | Fixed-gain baseline |",
+            "|---|---:|---:|",
+            f"| Mean absolute error | `{metrics.get('QC_AI_CONTROL_ERROR_MEAN', 'n/a')}` | `{metrics.get('QC_MANUAL_CONTROL_ERROR_MEAN', 'n/a')}` |",
+            f"| Samples within +/-{metrics.get('QC_CONTROL_TOLERANCE_MILLI', 'n/a')} milliunits | `{metrics.get('QC_AI_WITHIN_TOLERANCE_COUNT', 'n/a')}/{metrics.get('QC_AI_REQUESTS', 'n/a')}` | `{metrics.get('QC_MANUAL_WITHIN_TOLERANCE_COUNT', 'n/a')}/{metrics.get('QC_AI_REQUESTS', 'n/a')}` |",
+            "",
             "## Effective Application Throughput",
             "",
             "This is a serialized request/response estimate derived from successful transactions and observed latency. It is intended as a conservative application-level throughput metric for the contest communication path, not a raw link-capacity benchmark.",

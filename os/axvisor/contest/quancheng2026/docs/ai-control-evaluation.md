@@ -13,7 +13,7 @@ manual baseline comparison.
 | Closed-loop response | The RTOS guest returns `ACK` and `STATUS`, and the analyzer records success, latency and control error. |
 | Integrated dual-guest PASS | `QC_AI_SUCCESSES=10`, `QC_AI_FAILURES=0`, `QC_AI_CONTROL_RESULT=PASS`. |
 | End-to-end latency | Representative integrated mean/max: `2186 us` / `3389 us`; short final-demo rehearsal mean/max: `1.563 ms` / `1.754 ms`; latest 4-worker overcommit boundary after-side mean/max: `5.475 ms` / `18.573 ms`. |
-| Manual baseline comparison | Integrated mean control error: AI `207` versus manual `240`; native smoke: AI `129.003` versus manual `204.640`. |
+| Manual baseline comparison | Integrated mean control error: AI `207` versus manual `240`. On the same ten samples, AI enters the `+/-200` milliunit tolerance band in `6/10` cases versus `0/10` for the fixed-gain baseline. Native smoke: AI `129.003` versus manual `204.640`. |
 
 This places the task-three evidence on top of the document; the rest of this
 file explains the closed-loop design, model payload and measurement method.
@@ -104,6 +104,9 @@ QC_AI_E2E_MEAN_US=2186
 QC_AI_E2E_MAX_US=3389
 QC_AI_CONTROL_ERROR_MEAN=207
 QC_MANUAL_CONTROL_ERROR_MEAN=240
+QC_CONTROL_TOLERANCE_MILLI=200
+QC_AI_WITHIN_TOLERANCE_COUNT=6
+QC_MANUAL_WITHIN_TOLERANCE_COUNT=0
 QC_AI_CONTROL_RESULT=PASS
 ```
 
@@ -118,7 +121,8 @@ manual mean error: 204.640
 
 The two quantitative comparison dimensions are:
 
-- control quality: AI mean control error versus fixed manual-gain error;
+- control quality: AI mean absolute error versus fixed manual-gain error;
+- tolerance accuracy: samples within `+/-200` milliunits, using the same input sequence for both policies;
 - timing: AI inference latency and end-to-end Linux/RTOS control latency.
 
 Under the 0/1/2/4-worker AxVisor long-sample runs, the AI control transaction
