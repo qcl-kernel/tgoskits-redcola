@@ -12,8 +12,9 @@ a certified hard-real-time industrial kernel.
 The final package is generated from private PR `#1`; its generated `README.txt`
 records the exact selected source head. The 2026-08-22 clean-head pre-final
 dry run reports `FINAL_PACKAGE_BUILD=PASS`, `FINAL_PACKAGE_VERIFY=PASS` and
-`78` files. The strict final gate remains the user-narrated video and
-presentation verification. Historical checkpoint hashes remain in
+`79` files with the PPTX and narration DOCX included; the presentation strict
+gate also passes. The final remaining strict gate is the user-narrated video.
+Historical checkpoint hashes remain in
 `docs/final-package.md` and are not presented as the final archive identity.
 
 ## Reviewer Snapshot
