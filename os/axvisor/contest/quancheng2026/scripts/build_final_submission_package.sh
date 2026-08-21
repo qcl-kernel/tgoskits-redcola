@@ -261,6 +261,7 @@ summary_files=(
     "results/axvm-host-test-latestdev0340-summary.txt"
     "results/axvm-host-test-latestdev8e39-summary.txt"
     "results/final-demo-latestdev8e39-head17ee-summary.md"
+    "results/task-three-second-metric-latestdev-summary.md"
     "results/realtime-comparison.csv"
     "results/stability/2026-07-27-stress2-3x/stability-summary.md"
 )

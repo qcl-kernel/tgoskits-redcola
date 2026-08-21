@@ -215,18 +215,22 @@ QC_DUAL_GUEST_LINUX_INIT=PASS
 tcpdump kernel drops=0 in recorded TAP runs
 Native Zephyr latency baseline: 47 metrics, PROJECT EXECUTION SUCCESSFUL
 StarryOS bonus: REDCOLA_STARRY_QCZ1_PARITY_PASS, REDCOLA_STARRY_AI_CONTROL_PASS and REDCOLA_STARRY_AI_DONE
-Latest verified checkpoint package:
+Current pre-final package gate (exact source head is recorded in generated README.txt):
+FINAL_PACKAGE_BUILD=PASS, FINAL_PACKAGE_VERIFY=PASS, files=78
+Final strict gate pending: user-narrated video and presentation verification
+Historical 2026-08-15 checkpoint package:
 redcola-current-head-with-video-20260815-dca3bfdd-v1.zip
-Latest checkpoint package SHA256:
+Historical checkpoint package SHA256:
 8710e9bbfad862201bd89e02d03b928a94f99f7b816d0eaece102be80c72aacd
-Latest checkpoint package verification:
+Historical checkpoint package verification:
 FINAL_PACKAGE_BUILD=PASS, FINAL_PACKAGE_VERIFY=PASS, fresh-unzip verify=PASS, files=63
 ```
 
-The main PR branch may continue to receive documentation-only clarification
-commits after the checkpoint package. In that case, use the package `README.txt`
-and the SHA256 above to identify the exact verified upload package, and use the
-runtime source heads listed below to identify measured QEMU evidence.
+The main PR branch may continue to receive final clarification commits. Use the
+newly generated package `README.txt` and sibling `.zip.sha256` file to identify
+the exact final upload package. Use the runtime source heads listed below to
+identify measured QEMU evidence; do not treat the historical SHA256 above as
+the final archive identity.
 
 The 2026-08-14 private PR-head long hub matrix at
 `/home/kali/qc-evidence/t1-head760-hub-r10000-20260814_010458` was collected

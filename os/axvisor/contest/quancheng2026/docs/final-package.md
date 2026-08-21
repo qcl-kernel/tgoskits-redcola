@@ -31,12 +31,29 @@ capture files stay outside git.
 
 ## Verified Package Proof Points
 
-The current first-checkpoint archive is generated from the selected private PR
-heads by `scripts/build_final_submission_package.sh`. The package `README.txt`
+The final archive is generated from the selected private PR heads by
+`scripts/build_final_submission_package.sh`. The generated package `README.txt`
 records the exact main branch head used for that build, and the sibling
-`.zip.sha256` file is the authoritative archive hash. The hash is intentionally
-not hard-coded here because any later documentation refresh changes the package
-contents and therefore the archive digest.
+`.zip.sha256` file is the authoritative archive hash. The final hash is
+intentionally not hard-coded here because any later documentation or video
+refresh changes the archive digest.
+
+The 2026-08-22 clean-head pre-final dry run, before adding the user-narrated
+video, reports:
+
+```text
+Main PR #1 branch: contest/axvisor-2026
+StarryOS PR #2 head: 2ac656341a63facdc3030fa3fd99bd20de156bef
+FINAL_PACKAGE_FILE_COUNT=78
+FINAL_PACKAGE_BUILD=PASS
+FINAL_PACKAGE_VERIFY=PASS
+Included: current task-one/latest-dev summaries, task-three second-metric
+summary, StarryOS bonus material and reviewer-facing documents
+Pending strict final gate: user-narrated video plus presentation verification
+```
+
+The following entries are retained as historical checkpoint proof points. They
+do not identify the final 2026-08-24 archive.
 
 The previous verified Windows package proof point after adding the current-head
 `30000`-sample TAP/tcpdump row and the 4-worker hub overcommit proof, before

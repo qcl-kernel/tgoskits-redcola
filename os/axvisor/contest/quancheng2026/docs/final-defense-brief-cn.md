@@ -18,6 +18,14 @@ redcola 当前交付的是一个基于 AxVisor 的 Linux/RTOS 混合部署与智
 | `docs/starryos-bonus-scorecard.md` | StarryOS 加分项边界与证据 |
 | `video/redcola-axvisor-demo.mp4` | 最终演示视频 |
 
+## 当前预最终状态
+
+- 主交付：私有 PR `#1`，分支 `contest/axvisor-2026`；最终包生成时由 `README.txt` 自动记录精确 head。
+- StarryOS 加分：私有 PR `#2`，已保持独立评审范围。
+- 最新同源双 guest：Linux `2` vCPU、UDP `20/20`、QCZ1 `10/10`、AI `10/10`、最终 `result=PASS`。
+- 任务三第二指标：同一批样本下，AI 平均绝对误差 `207` 对固定参数 `240`；`+/-200` 容差达标 `6/10` 对 `0/10`。
+- 预最终包：`78` 个文件，`FINAL_PACKAGE_BUILD=PASS`、`FINAL_PACKAGE_VERIFY=PASS`；最终严格门槛只剩用户配音视频与 PPT/DOCX 一并验证。
+
 ## 三个任务怎么讲
 
 | 任务 | 答辩重点 | 关键证据 |
