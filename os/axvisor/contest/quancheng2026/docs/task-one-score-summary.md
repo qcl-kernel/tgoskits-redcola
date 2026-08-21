@@ -20,7 +20,7 @@ calculate the before/after deltas by hand.
 - The current-head long-pressure proof extends the `30000` Linux periodic
   sample window across the 2-worker hub/TAP rows and 4-worker hub/TAP
   overcommit rows.
-- The exact submitted head `746042293` adds a 3-run repeatability proof for the
+- The recorded 2026-08-15 checkpoint head `746042293` adds a 3-run repeatability proof for the
   2-worker, `30000`-sample hub pressure row.
 - Recorded head `a9ceb7dc` adds a refreshed 2-worker, `30000`-sample hub proof
   that is included in the current upload package manifest.
@@ -116,8 +116,8 @@ results/task-one-second-version-summary.md
 | Realtime target and key-path analysis | `docs/realtime-evaluation.md`, `docs/core-patch-review.md` and this summary name timer/interrupt delivery as the target path. |
 | Substantive AxVisor key-mechanism change | Merged support anchor `rcore-os/tgoskits#1770` is the landed timer/interrupt support reference. |
 | Multi-vCPU Linux guest | Every before/after row records Linux `2` vCPUs. |
-| Before/after realtime data | `results/task-one-before-after-hub-summary.csv` records 0/1/2/4-worker rows and `results/task-one-before-after-tap-summary.csv` records TAP 0/2-worker rows with RTOS and Linux periodic metrics. Current-head `30000`-sample hub/TAP rows and the 4-worker hub/TAP overcommit rows are recorded in the long-pressure summaries, including the `b706a02c` full hub proof and the exact submitted head `746042293` 3-run stability repeat. |
-| Empty and stress scenarios | 0-worker, 1-worker, 2-worker and 4-worker pressure rows are recorded; TAP covers 0-worker and 2-worker packet-capture rows, and current-head long pressure covers both 2-worker TAP/hub proof and 4-worker hub/TAP overcommit runs with `30000` Linux periodic samples. The `b706a02c` full hub run covers 0/1/2/4-worker pressure, and the exact submitted head `746042293` repeats the 2-worker long-pressure hub row 3 times. |
+| Before/after realtime data | `results/task-one-before-after-hub-summary.csv` records 0/1/2/4-worker rows and `results/task-one-before-after-tap-summary.csv` records TAP 0/2-worker rows with RTOS and Linux periodic metrics. Current-head `30000`-sample hub/TAP rows and the 4-worker hub/TAP overcommit rows are recorded in the long-pressure summaries, including the `b706a02c` full hub proof and the recorded 2026-08-15 head `746042293` 3-run stability repeat. |
+| Empty and stress scenarios | 0-worker, 1-worker, 2-worker and 4-worker pressure rows are recorded; TAP covers 0-worker and 2-worker packet-capture rows, and current-head long pressure covers both 2-worker TAP/hub proof and 4-worker hub/TAP overcommit runs with `30000` Linux periodic samples. The `b706a02c` full hub run covers 0/1/2/4-worker pressure, and the recorded 2026-08-15 head `746042293` repeats the 2-worker long-pressure hub row 3 times. |
 | Native RTOS baseline | Zephyr native latency baseline is retained in `docs/realtime-evaluation.md`. |
 
 ## Current Runtime-Proof Refresh

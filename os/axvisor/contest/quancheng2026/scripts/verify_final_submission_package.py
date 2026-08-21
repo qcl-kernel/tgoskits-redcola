@@ -76,6 +76,7 @@ REQUIRED_FILES = [
     "evidence-summaries/axvm-host-test-latestdev0340-summary.txt",
     "evidence-summaries/axvm-host-test-latestdev8e39-summary.txt",
     "evidence-summaries/final-demo-latestdev8e39-head17ee-summary.md",
+    "evidence-summaries/task-three-second-metric-latestdev-summary.md",
 ]
 
 STARRY_REQUIRED_FILES = [
