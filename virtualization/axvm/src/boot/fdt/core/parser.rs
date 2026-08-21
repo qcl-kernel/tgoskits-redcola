@@ -733,17 +733,29 @@ pub fn parse_vm_interrupt(
             continue;
         };
         for interrupt in view.interrupts() {
-            if let Some(interrupt) = decode_interrupt(&interrupt.specifier) {
-                if vm_cfg
-                    .excluded_passthrough_irq_sources()
-                    .contains(&interrupt.source)
-                {
-                    return Err(AxVmError::invalid_config(format!(
-                        "passthrough device {path} shares host-owned interrupt source {:#x}",
-                        interrupt.source
-                    )));
-                }
-                passthrough_interrupts.push((path.clone(), interrupt));
+            collect_passthrough_irq_from_specifier(
+                vm_cfg,
+                &path,
+                &interrupt.specifier,
+                decode_interrupt,
+                &mut passthrough_interrupts,
+            )?;
+        }
+
+        // PCI host bridges describe legacy INTx routes in interrupt-map rather than
+        // in an interrupts property on the bridge node itself. Passing through the
+        // whole bridge therefore needs every unique parent interrupt route.
+        if let Some(NodeType::Pci(pci)) = fdt.view_typed(node_id)
+            && let Ok(mappings) = pci.interrupt_map()
+        {
+            for mapping in mappings {
+                collect_passthrough_irq_from_specifier(
+                    vm_cfg,
+                    &path,
+                    &mapping.parent_irq,
+                    decode_interrupt,
+                    &mut passthrough_interrupts,
+                )?;
             }
         }
     }
@@ -756,6 +768,29 @@ pub fn parse_vm_interrupt(
         vm_cfg.add_pass_through_irq(interrupt.source, interrupt.trigger);
     }
 
+    Ok(())
+}
+
+fn collect_passthrough_irq_from_specifier(
+    vm_cfg: &AxVMConfig,
+    node_path: &str,
+    specifier: &[u32],
+    decode_interrupt: fn(&[u32]) -> Option<DecodedInterrupt>,
+    passthrough_interrupts: &mut Vec<(String, DecodedInterrupt)>,
+) -> AxVmResult {
+    let Some(interrupt) = decode_interrupt(specifier) else {
+        return Ok(());
+    };
+    if vm_cfg
+        .excluded_passthrough_irq_sources()
+        .contains(&interrupt.source)
+    {
+        return Err(AxVmError::invalid_config(format!(
+            "passthrough device {node_path} shares host-owned interrupt source {:#x}",
+            interrupt.source
+        )));
+    }
+    passthrough_interrupts.push((node_path.to_string(), interrupt));
     Ok(())
 }
 pub fn update_provided_fdt(
@@ -1007,6 +1042,54 @@ mod tests {
                 .unwrap()
                 .set_regs(&[RegInfo::new(base, Some(0x1000))]);
         }
+
+        fdt.encode().as_ref().to_vec()
+    }
+
+    fn fdt_with_pci_interrupt_map() -> Vec<u8> {
+        let mut fdt = Fdt::new();
+        let root = fdt.root_id();
+        fdt.node_mut(root)
+            .unwrap()
+            .set_property(prop_u32("#address-cells", 2));
+        fdt.node_mut(root)
+            .unwrap()
+            .set_property(prop_u32("#size-cells", 2));
+
+        let intc = fdt.add_node(root, Node::new("interrupt-controller@0"));
+        fdt.node_mut(intc)
+            .unwrap()
+            .set_property(fdt_edit::Property::new("interrupt-controller", std::vec![]));
+        fdt.node_mut(intc)
+            .unwrap()
+            .set_property(prop_u32("#address-cells", 0));
+        fdt.node_mut(intc)
+            .unwrap()
+            .set_property(prop_u32("#interrupt-cells", 1));
+        fdt.node_mut(intc)
+            .unwrap()
+            .set_property(prop_u32("phandle", 1));
+
+        let pci = fdt.add_node(root, Node::new("pcie@10000000"));
+        fdt.node_mut(pci)
+            .unwrap()
+            .set_property(super::super::tree::prop_string("device_type", "pci"));
+        fdt.node_mut(pci)
+            .unwrap()
+            .set_property(prop_u32("#address-cells", 3));
+        fdt.node_mut(pci)
+            .unwrap()
+            .set_property(prop_u32("#size-cells", 2));
+        fdt.node_mut(pci)
+            .unwrap()
+            .set_property(prop_u32("#interrupt-cells", 1));
+        fdt.node_mut(pci)
+            .unwrap()
+            .set_property(prop_u32_list("interrupt-map-mask", &[0x0000_f800, 0, 0, 7]));
+        fdt.node_mut(pci).unwrap().set_property(prop_u32_list(
+            "interrupt-map",
+            &[0x0000_0800, 0, 0, 1, 1, 4, 0x0000_1000, 0, 0, 1, 1, 5],
+        ));
 
         fdt.encode().as_ref().to_vec()
     }
@@ -1581,6 +1664,41 @@ mod tests {
                 .map(|interrupt| interrupt.source)
                 .collect::<Vec<_>>(),
             [11]
+        );
+    }
+
+    #[test]
+    fn pci_interrupt_map_parent_sources_are_added_to_passthrough_routes() {
+        let dtb = fdt_with_pci_interrupt_map();
+        let mut vm_cfg = AxVMConfig::new(AxVMConfigParams {
+            id: 1,
+            name: "pci-passthrough".to_string(),
+            phys_cpu_ls: PhysCpuList::new(1, None, None),
+            pass_through_devices: vec![HostDeviceAssignment {
+                name: "/pcie@10000000".to_string(),
+                ..Default::default()
+            }],
+            ..Default::default()
+        });
+        let crate_cfg = GuestConfig {
+            devices: GuestDevices {
+                passthrough: vec![PhysicalDeviceRef {
+                    path: "/pcie@10000000".to_string(),
+                }],
+                ..Default::default()
+            },
+            ..Default::default()
+        };
+
+        parse_vm_interrupt(&mut vm_cfg, &crate_cfg, &dtb).unwrap();
+
+        assert_eq!(
+            vm_cfg
+                .pass_through_irqs()
+                .iter()
+                .map(|interrupt| interrupt.source)
+                .collect::<Vec<_>>(),
+            [4, 5]
         );
     }
 
