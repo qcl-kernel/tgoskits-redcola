@@ -78,7 +78,7 @@ skips host bridge/TAP creation.
 | RTOS observable control action | Zephyr applies `output_milli = setpoint_milli * ai_score_milli / 1000` and logs the applied state. |
 | Closed-loop response | RTOS returns `ACK` and `STATUS`; the analyzer checks success, latency and control error. |
 | End-to-end latency | Representative integrated AI e2e mean/max `2.186 ms / 3.389 ms`; final-demo rehearsal mean/max `1.563 ms / 1.754 ms`; recorded runtime-source 30000-sample pressure rows stay PASS from 0 to 4 workers, with 0-worker mean/max `1.755 ms / 2.567 ms`, 2-worker `3.299 ms / 9.299 ms`, and 4-worker `8.600 ms / 53.677 ms`. |
-| Manual baseline comparison | Integrated mean control error AI `207` versus manual `240`; native smoke AI `129.003` versus manual `204.640`. |
+| Manual baseline comparison | On the same ten integrated samples, mean control error is AI `207` versus manual `240`, while `+/-200` milliunit tolerance accuracy is AI `6/10` versus manual `0/10`; native smoke error is AI `129.003` versus manual `204.640`. |
 | Stress behavior | AI stays `10/10 PASS` across 0/1/2/4-worker AxVisor runs. |
 
 Representative integrated markers:
@@ -92,8 +92,14 @@ QC_AI_E2E_MEAN_US=2186
 QC_AI_E2E_MAX_US=3389
 QC_AI_CONTROL_ERROR_MEAN=207
 QC_MANUAL_CONTROL_ERROR_MEAN=240
+QC_CONTROL_TOLERANCE_MILLI=200
+QC_AI_WITHIN_TOLERANCE_COUNT=6
+QC_MANUAL_WITHIN_TOLERANCE_COUNT=0
 QC_AI_CONTROL_RESULT=PASS
 ```
+
+The latest-dev same-sample runtime proof for these two control-quality metrics
+is committed as `results/task-three-second-metric-latestdev-summary.md`.
 
 The recorded runtime-source full long pressure matrix also reports:
 

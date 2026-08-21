@@ -799,6 +799,8 @@ static int run_demo(void) {
     u64 ai_e2e_max = 0;
     u64 ai_error_sum = 0;
     u64 manual_error_sum = 0;
+    u64 ai_within_200_count = 0;
+    u64 manual_within_200_count = 0;
     int reliable_status_ok = 0;
     int ai_status_ok = 0;
     u32 seq;
@@ -953,6 +955,12 @@ static int run_demo(void) {
         }
         ai_error_sum += (u64)ai_error;
         manual_error_sum += (u64)manual_error;
+        if (ai_error <= 200) {
+            ai_within_200_count++;
+        }
+        if (manual_error <= 200) {
+            manual_within_200_count++;
+        }
 
         write_ai_line(
             seq,
@@ -982,6 +990,9 @@ static int run_demo(void) {
     write_name_u64("QC_AI_E2E_MAX_US=", ai_e2e_max);
     write_name_u64("QC_AI_CONTROL_ERROR_MEAN=", ai_error_sum / 10);
     write_name_u64("QC_MANUAL_CONTROL_ERROR_MEAN=", manual_error_sum / 10);
+    write_name_u64("QC_CONTROL_TOLERANCE_MILLI=", 200);
+    write_name_u64("QC_AI_WITHIN_TOLERANCE_COUNT=", ai_within_200_count);
+    write_name_u64("QC_MANUAL_WITHIN_TOLERANCE_COUNT=", manual_within_200_count);
     ai_status_ok = request_status(socket_fd, &target, 2010, 1010) == 0;
     write_name_u64("QC_AI_STATUS_OK=", ai_status_ok ? 1 : 0);
     write_text(

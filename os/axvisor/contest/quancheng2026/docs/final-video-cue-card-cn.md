@@ -80,7 +80,8 @@ sed -n '1,90p' docs/scorecard-traceability.md
 任务二对应客户机间通信。主数据通道是 IPv4/UDP，不使用共享内存或 HyperCall
 作为主通道；QCZ1 协议包含版本、类型、长度、序号、时间戳、状态码和校验字段。
 任务三对应 AI 控制闭环。Linux 侧 AI 输出通过 QCZ1 发给 RTOS，RTOS 更新控制状态
-并回传 ACK 和 STATUS。
+并回传 ACK 和 STATUS。同一组十个样本中，AI 平均误差是 207，固定参数基线是 240；
+在正负 200 的容差范围内，AI 达标 6 次，固定参数基线为 0 次。
 ```
 
 右侧显示：

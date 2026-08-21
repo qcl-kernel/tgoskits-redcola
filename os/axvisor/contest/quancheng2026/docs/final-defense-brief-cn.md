@@ -24,7 +24,7 @@ redcola 当前交付的是一个基于 AxVisor 的 Linux/RTOS 混合部署与智
 | --- | --- | --- |
 | 任务一：实时性改造与验证 | 不只提交演示脚本，而是围绕 AxVisor 定时器/中断路径、双 guest、2 vCPU Linux、Zephyr RTOS、压力场景和前后对比做了可复现实验。 | 已合入 `rcore-os/tgoskits#1770`；主 PR 中两文件 PCI `interrupt-map` 解析修复；AxVM 定向 `1/1` 和完整 `296/296` 测试；10000 样本前后对比；30000 样本长压力；TAP/tcpdump 和 Zephyr 原生基线。 |
 | 任务二：客户机间通信 | 主数据通道是 IP 网络，不是共享内存、HyperCall 或裸 MMIO。Linux 与 RTOS 通过 IPv4/UDP 通信，并在应用层实现 QCZ1。 | Plain UDP `20/20 PASS`；QCZ1 `10/10 PASS`；ACK/超时/重传/状态/错误路径；状态负例自测；tcpdump 抓包。 |
-| 任务三：AI 控制闭环 | AI 推理输出通过 QCZ1 发送给 RTOS，RTOS 根据输出调整控制量并回传状态，形成完整闭环。 | AI control `10/10 PASS`；端到端延迟统计；AI 与固定参数基线对比；视频展示 AI 输入、推理、网络发送、RTOS 状态回传。 |
+| 任务三：AI 控制闭环 | AI 推理输出通过 QCZ1 发送给 RTOS，RTOS 根据输出调整控制量并回传状态，形成完整闭环。 | AI control `10/10 PASS`；平均误差 AI `207` 对固定参数 `240`；同样本 `+/-200` 容差达标 AI `6/10` 对固定参数 `0/10`；端到端延迟统计和视频闭环展示。 |
 
 ## StarryOS 加分怎么讲
 
