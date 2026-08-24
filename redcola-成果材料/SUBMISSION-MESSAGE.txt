@@ -43,7 +43,7 @@ https://github.com/qcl-kernel/tgoskits-redcola
 - AI control loop：10/10 PASS；
 - Linux guest：2 vCPU；
 - StarryOS bonus：REDCOLA_STARRY_QCZ1_PARITY_PASS、REDCOLA_STARRY_AI_CONTROL_PASS、REDCOLA_STARRY_AI_DONE。
-- 演示视频：`redcola-成果材料/video/redcola-axvisor-demo.mp4`，300.067 秒、1920x1080；SHA256 为 `909bdc9f39527404ac12cccd9515caaf255be649a0de8e454c8541e297201bba`。
+- 演示视频（队长本人录制并配音）：`redcola-成果材料/video/redcola-axvisor-demo.mp4`，385.079 秒、2560x1600；SHA256 为 `20a15f735f446595ad48cb15872d39c2dec0ce2e9107c450a8f59cc2017629ba`。
 - 实体板证据：`redcola-成果材料/evidence-raw/redcola-board-evidence-20260824.tar.gz`；SHA256 为 `7af6beee3ef1ad2b041d25073a7df2a24e5ddca87d76d5e0bada46c0b5b6b974`。
 
 推荐审阅入口：

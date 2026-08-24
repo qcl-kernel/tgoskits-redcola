@@ -31,16 +31,16 @@ git merge-base upstream/dev contest/starry-redcola-ai-bonus-final-20260824
 
 - 设计、协议、网络拓扑、隔离、测试与复现文档：`docs/`
 - Linux/RTOS、QCZ1、AI 闭环源码和自动化测例：主源码目录
-- 5 分钟演示视频：`video/redcola-axvisor-demo.mp4`
+- 最终演示视频（队长本人录制并配音）：`video/redcola-axvisor-demo.mp4`
 - 演示 PPT 与配音稿：`presentation/`
 - QEMU/TAP/实时性证据摘要：`evidence-summaries/`
 - RK3588 实体开发板原始证据：`evidence-raw/redcola-board-evidence-20260824.tar.gz`
 - 全目录哈希清单：`SHA256SUMS.txt`
 
-视频为 300.067 秒、1920x1080，SHA256：
+视频为 385.079 秒、2560x1600，采用 H.264 视频和 AAC 双声道配音，SHA256：
 
 ```text
-909bdc9f39527404ac12cccd9515caaf255be649a0de8e454c8541e297201bba
+20a15f735f446595ad48cb15872d39c2dec0ce2e9107c450a8f59cc2017629ba
 ```
 
 实体板证据归档 SHA256：

@@ -151,7 +151,7 @@ FINAL_PACKAGE_VERIFY_FILE_COUNT=62
 FINAL_PACKAGE_BUILD=PASS
 FINAL_PACKAGE_VERIFY=PASS
 UNZIPPED_FINAL_PACKAGE_VERIFY=PASS
-VIDEO=video/redcola-axvisor-demo.mp4, duration=300 seconds
+VIDEO=video/redcola-axvisor-demo.mp4, duration=385 seconds
 Included: video, StarryOS bonus material, starryos-bonus/SCORECARD.md,
 task-one reviewer defense Q&A, final defense brief, demo acceptance checklist,
 video proof, long hub/TAP summaries, 4-worker hub proof, 4-worker TAP/tcpdump
