@@ -7,10 +7,15 @@
 - 主交付分支：`contest/axvisor-2026`
 - 主交付 PR：<https://github.com/qcl-kernel/tgoskits-redcola/pull/1>
 - 主原型、Linux/RTOS 程序、QCZ1 协议、AI 控制与测试脚本：[`os/axvisor/contest/quancheng2026/`](../os/axvisor/contest/quancheng2026/)
-- StarryOS 加分项分支：`contest/starry-redcola-ai-bonus-clean-20260731`
-- StarryOS 加分项 PR：<https://github.com/qcl-kernel/tgoskits-redcola/pull/2>
-- StarryOS 源码：<https://github.com/qcl-kernel/tgoskits-redcola/tree/contest/starry-redcola-ai-bonus-clean-20260731/apps/starry/qemu/redcola-ai-control>
+- 最终 StarryOS 加分项分支：`contest/starry-redcola-ai-bonus-final-20260824`
+- 最终 StarryOS 加分项 PR：<https://github.com/qcl-kernel/tgoskits-redcola/pull/3>
+- StarryOS 源码：<https://github.com/qcl-kernel/tgoskits-redcola/tree/contest/starry-redcola-ai-bonus-final-20260824/apps/starry/qemu/redcola-ai-control>
+- 历史 StarryOS PR #2 保留作阶段性记录，最终评审请以 PR #3 为准。
 - AxVisor 核心支撑补丁：<https://github.com/rcore-os/tgoskits/pull/1770>（已合入官方 `dev`）
+- StarryOS 官方拆分 PR：<https://github.com/rcore-os/tgoskits/pull/1813>
+
+最终主交付已基于官方 `dev` `3a3af51675c9811dafd842db644cf915084ca9fe`
+重新整理；可合并性和基线关系见 `FINAL-SUBMISSION-RECEIPT.md`。
 
 ## 2. 文档与测例
 
@@ -48,7 +53,7 @@
 ## 5. 建议评审顺序
 
 1. 阅读本文件。
-2. 阅读 `docs/second-version-reviewer-quickstart.md`。
+2. 阅读 `FINAL-SUBMISSION-RECEIPT.md`。
 3. 阅读 `docs/evidence-index.md` 和 `docs/scorecard-traceability.md`。
 4. 按 `docs/reproduce.md` 运行静态检查、单项测例或双客户机测试。
 5. 查看 PPT、配音稿与 MP4 演示视频。

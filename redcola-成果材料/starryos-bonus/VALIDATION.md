@@ -10,8 +10,8 @@ see `SCORECARD.md`.
 
 | Item | Value |
 | --- | --- |
-| Private PR | `qcl-kernel/tgoskits-redcola#2` |
-| Branch | `contest/starry-redcola-ai-bonus-clean-20260731` |
+| Private PR | `qcl-kernel/tgoskits-redcola#3` (final); `#2` is retained as historical evidence. |
+| Branch | `contest/starry-redcola-ai-bonus-final-20260824` |
 | Path | `apps/starry/qemu/redcola-ai-control/` |
 | Guest role | StarryOS non-RT guest |
 | Program role | Linux-user-mode AI-control workload inside StarryOS |
@@ -110,7 +110,7 @@ be cited together with the main AxVisor artifact PR:
 
 ```text
 Main AxVisor artifact: qcl-kernel/tgoskits-redcola#1
-StarryOS bonus artifact: qcl-kernel/tgoskits-redcola#2
+StarryOS bonus artifact: qcl-kernel/tgoskits-redcola#3
 ```
 
 ## Validation Gate Summary

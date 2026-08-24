@@ -77,7 +77,7 @@ Use this branch together with:
 
 ```text
 Main AxVisor artifact: qcl-kernel/tgoskits-redcola#1
-StarryOS bonus artifact: qcl-kernel/tgoskits-redcola#2
+StarryOS bonus artifact: qcl-kernel/tgoskits-redcola#3
 ```
 
 ## Upgrade Path Toward A Fuller StarryOS Replacement
