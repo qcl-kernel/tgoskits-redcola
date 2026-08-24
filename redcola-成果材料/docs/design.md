@@ -4,6 +4,20 @@ This document is the reviewer-facing design entry point for the redcola
 Quancheng Lab 2026 AxVisor contest artifact. Detailed protocol, topology,
 reproduction and patch-risk notes are linked from the sections below.
 
+## Demo Video / 演示视频
+
+### Final Subtitled Version / 最终字幕版（推荐评审）
+
+最终高清演示视频包含中文配音与字幕。由于文件较大，不便直接存储在 GitHub 仓库中，因此通过百度网盘提供。
+
+- 文件名：`redcola-axvisor-final-demo-subtitled-20260824.mp4`
+- 下载链接：[百度网盘](https://pan.baidu.com/s/1jgdA-uk1v0eBT41I4nio-A?pwd=j4f9)
+- 提取码：`j4f9`
+- 文件大小：`90,617,638 bytes`（约 `86.42 MiB`）
+- SHA256：`0491c0cd4248657b5cb8fa6bdb0132c9b094a1c60e69639692ff91236c4e86ce`
+
+仓库内的 `video/redcola-axvisor-demo.mp4` 为轻量预览版本，便于快速查看；最终评审建议优先使用上述带字幕高清版本。
+
 ## Goal
 
 The demo builds an intelligent industrial-control style mixed system on
@@ -161,7 +175,8 @@ See `docs/ai-control-evaluation.md`.
 
 ## Reproducibility
 
-Primary integrated command after preparing the runtime artifacts listed in `docs/reproduce.md`:
+Primary integrated command after preparing the runtime artifacts listed in
+`docs/reproduce.md`:
 
 ```bash
 REPO=/path/to/tgoskits
