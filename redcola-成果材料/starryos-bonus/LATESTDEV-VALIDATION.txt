@@ -1,11 +1,11 @@
 REDCOLA STARRYOS FINAL LATEST-DEV INTEGRATION VALIDATION
 
 date=2026-08-24
-official_upstream_dev=3a3af51675c9811dafd842db644cf915084ca9fe
+official_upstream_dev=f70cf8d0eadc43caf176e7873244e8fae8154d9c
 private_pr=https://github.com/qcl-kernel/tgoskits-redcola/pull/3
 branch=contest/starry-redcola-ai-bonus-final-20260824
-submission_head=b9e6473b0873da24b61520a4135a39385d3b6886
-merge_base=3a3af51675c9811dafd842db644cf915084ca9fe
+submission_head=a8bba1f61258af395b276f66c79369a18f3c0e09
+merge_base=f70cf8d0eadc43caf176e7873244e8fae8154d9c
 scope=apps/starry/qemu/redcola-ai-control/
 
 Latest-dev integration checks:
@@ -26,6 +26,6 @@ REDCOLA_STARRY_AI_CONTROL_PASS samples=8 manual_abs_error=1013 ai_abs_error=0
 REDCOLA_STARRY_AI_DONE
 
 Runtime evidence boundary:
-- The final branch is rebased on official dev 3a3af516.
+- The final branch is rebased on official dev f70cf8d0e.
 - The representative QEMU run was recorded before the final documentation-only rebase.
 - Generated rootfs images, build outputs and temporary toolchains are excluded.

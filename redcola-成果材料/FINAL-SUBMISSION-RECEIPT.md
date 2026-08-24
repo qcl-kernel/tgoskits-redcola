@@ -11,14 +11,14 @@
 - 最终 StarryOS PR：<https://github.com/qcl-kernel/tgoskits-redcola/pull/3>
 
 主交付与 StarryOS 最终分支均以官方最新 `rcore-os/tgoskits` `dev`
-`3a3af51675c9811dafd842db644cf915084ca9fe` 为共同基点。最终推送前执行：
+`f70cf8d0eadc43caf176e7873244e8fae8154d9c` 为共同基点。最终推送前执行：
 
 ```text
 git merge-base upstream/dev contest/axvisor-2026
-3a3af51675c9811dafd842db644cf915084ca9fe
+f70cf8d0eadc43caf176e7873244e8fae8154d9c
 
 git merge-base upstream/dev contest/starry-redcola-ai-bonus-final-20260824
-3a3af51675c9811dafd842db644cf915084ca9fe
+f70cf8d0eadc43caf176e7873244e8fae8154d9c
 ```
 
 ## 2. 公开 PR 拆分

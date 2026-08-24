@@ -14,7 +14,7 @@
 - AxVisor 核心支撑补丁：<https://github.com/rcore-os/tgoskits/pull/1770>（已合入官方 `dev`）
 - StarryOS 官方拆分 PR：<https://github.com/rcore-os/tgoskits/pull/1813>
 
-最终主交付已基于官方 `dev` `3a3af51675c9811dafd842db644cf915084ca9fe`
+最终主交付已基于官方 `dev` `f70cf8d0eadc43caf176e7873244e8fae8154d9c`
 重新整理；可合并性和基线关系见 `FINAL-SUBMISSION-RECEIPT.md`。
 
 ## 2. 文档与测例

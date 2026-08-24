@@ -23,7 +23,7 @@ https://github.com/qcl-kernel/tgoskits-redcola
    链接：https://github.com/rcore-os/tgoskits/pull/1770
 
 本次材料主要包含：
-- 基于官方最新 dev `3a3af51675c9811dafd842db644cf915084ca9fe` 的最终同步与验证；
+- 基于官方最新 dev `f70cf8d0eadc43caf176e7873244e8fae8154d9c` 的最终同步与验证；
 - AxVM PCI `interrupt-map` 透传 IRQ 解析修复，定向测试 `1/1 PASS`，AxVM host-test `296/296 PASS`；
 - AxVisor 双 guest Linux/Zephyr RTOS 混合部署与复现脚本；
 - Linux/RTOS IPv4/UDP 通信链路；

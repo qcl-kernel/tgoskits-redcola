@@ -1,12 +1,12 @@
 team=redcola
 repository=https://github.com/qcl-kernel/tgoskits-redcola
 official_repository=https://github.com/rcore-os/tgoskits
-official_dev=3a3af51675c9811dafd842db644cf915084ca9fe
+official_dev=f70cf8d0eadc43caf176e7873244e8fae8154d9c
 submission_branch=contest/axvisor-2026
-submission_parent_before_final_material_commit=4af21363a2808a78a468b0938e123e62bbffbbc8
-submission_metadata_parent=c739c8f411dae51e4060e5647a31133f20120bc8
+submission_parent_before_final_material_commit=a439112ec61d06562636235279d99acaff0bd548
+submission_metadata_parent=2551ea1fbf3eea86c7b1578f1110fbc82585b152
 starry_branch=contest/starry-redcola-ai-bonus-final-20260824
-starry_locked_head=b9e6473b0873da24b61520a4135a39385d3b6886
+starry_locked_head=a8bba1f61258af395b276f66c79369a18f3c0e09
 private_main_pr=https://github.com/qcl-kernel/tgoskits-redcola/pull/1
 private_starry_pr=https://github.com/qcl-kernel/tgoskits-redcola/pull/3
 historical_private_starry_pr=https://github.com/qcl-kernel/tgoskits-redcola/pull/2

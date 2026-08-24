@@ -13,7 +13,7 @@ Main branch:
 contest/axvisor-2026
 
 Official dev base:
-3a3af51675c9811dafd842db644cf915084ca9fe
+f70cf8d0eadc43caf176e7873244e8fae8154d9c
 
 The authoritative moving head is shown by private PR #1. Baseline and locked
 StarryOS head details are recorded in SUBMISSION-BASE.txt.
