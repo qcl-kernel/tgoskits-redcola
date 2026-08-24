@@ -1,0 +1,4 @@
+scenario,cycles,min_us,avg_us,p50_us,p90_us,p99_us,p99_9_us,p99_99_us,p99_999_us,max_us,gt50_count,gt100_count,gt500_count,gt1000_count,gt50_ppm,gt100_ppm,gt500_ppm,gt1000_ppm,histogram_overflows,return_code
+Idle,300000,1,7.41,8,10,17,20,38,50,95,3,0,0,0,10,0,0,0,0,0
+Isolated stress,300000,1,2.4,2,3,8,15,30,62,76,7,0,0,0,23.333333,0,0,0,0,0
+Full stress,300000,1,9.3,9,18,26,30,41,1068,1338,23,22,20,4,76.666667,73.333333,66.666667,13.333333,0,0

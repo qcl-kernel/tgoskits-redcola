@@ -1,0 +1,12 @@
+validation_date=2026-08-21
+official_upstream_dev=8e39cbd586a4a34ab9f522931ca4b1e7523709c7
+validated_source_head=17ee96b89fd2e4c441a44dd5c1893f63ee5e77db
+targeted_command=cargo test -p axvm --features host-test pci_interrupt_map_parent_sources_are_added_to_passthrough_routes -- --nocapture
+targeted_result=PASS 1/1
+full_command=cargo test -p axvm --features host-test --lib
+full_result=PASS 296/296
+git_diff_check=PASS
+shell_syntax=PASS
+python_compile=PASS
+qcz1_negative_selftest=PASS
+aarch64_guest_compile=PASS 4/4

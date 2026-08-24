@@ -1,0 +1,8 @@
+TASK_ONE_CURRENT_HEAD_LONG_HUB4_PROOF=PASS
+source_head=91cb7c0fc00d579d62528a3c967e5efd3cc57836
+evidence_root=/tmp/t1h4-20260814_204459
+persisted_evidence_root=/home/kali/qc-evidence/t1-current-head-hub4-r30000-20260814_204459
+summary_csv=/home/kali/qc-evidence/t1-current-head-hub4-r30000-20260814_204459/task-one-second-version-summary.csv
+summary_md=/home/kali/qc-evidence/t1-current-head-hub4-r30000-20260814_204459/task-one-second-version-summary.md
+bc880f2e8facaf6e01a13a7f16dd001f632e43cad183ddaf3821b5ea415e3074  /home/kali/qc-evidence/t1-current-head-hub4-r30000-20260814_204459/task-one-second-version-summary.csv
+fc502217a3016cc3b014cee74a248fbb168c7b762ae16624ca5d308c7f5ae2ef  /home/kali/qc-evidence/t1-current-head-hub4-r30000-20260814_204459/task-one-second-version-summary.md

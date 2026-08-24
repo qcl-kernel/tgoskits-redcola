@@ -1,0 +1,11 @@
+Private repository:
+https://github.com/qcl-kernel/tgoskits-redcola
+
+Main AxVisor contest PR:
+https://github.com/qcl-kernel/tgoskits-redcola/pull/1
+
+StarryOS bonus PR:
+https://github.com/qcl-kernel/tgoskits-redcola/pull/2
+
+Merged AxVisor core support:
+https://github.com/rcore-os/tgoskits/pull/1770
