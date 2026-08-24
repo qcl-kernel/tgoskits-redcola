@@ -1,0 +1,134 @@
+           CPU0       CPU1       CPU2       CPU3       CPU4       CPU5       CPU6       CPU7
+ 13:      39903      24389      45991    1717028       1817       1143       3407      12143     GICv3  26 Level     arch_timer
+ 14:       8661      20692      24089      26950      17734        743       1220      15410     GICv3 321 Level     rk_timer
+ 15:          0          0          0          0          0          0          0          0     GICv3  23 Level     arm-pmu
+ 16:         10          0          0          0          0          0          0          0     GICv3 105 Level     dmc
+ 17:        447          0          0          0          0      16067          0          0     GICv3 126 Level     fb000000.gpu
+ 18:          1          0          0          0          0          0          0          0     GICv3 125 Level     fb000000.gpu
+ 19:        652        982          0          0          0          0          0      21067     GICv3 124 Level     fb000000.gpu
+ 20:       2328          0          0          0          0          0          0          0     GICv3 247 Level     ehci_hcd:usb1
+ 21:          0          0          0          0          0          0          0          0     GICv3 248 Level     ohci_hcd:usb3
+ 22:         28          0          0          0          0          0          0          0     GICv3 250 Level     ehci_hcd:usb2
+ 23:          0          0          0          0          0          0          0          0     GICv3 251 Level     ohci_hcd:usb4
+ 24:          0          0          0          0          0          0          0          0     GICv3 425 Level     rockchip_usb2phy
+ 25:          2          0          0          0          0          0          0          0     GICv3 423 Level     rockchip_usb2phy
+ 26:          2          0          0          0          0          0          0          0     GICv3 424 Level     rockchip_usb2phy
+ 27:       8950          0          0          0          0          0      13846          0     GICv3 349 Level     fd880000.i2c
+ 30:          0          0          0          0          0          0          0          0     GICv3 142 Level     fdab9000.iommu, fdab0000.npu
+ 31:          0          0          0          0          0          0          0          0     GICv3 143 Level     fdab9000.iommu, fdab0000.npu
+ 32:          0          0          0          0          0          0          0          0     GICv3 144 Level     fdab9000.iommu, fdab0000.npu
+ 33:          0          0          0          0          0          0          0          0     GICv3 152 Level     fdb50000.vepu
+ 34:          0          0          0          0          0          0          0          0     GICv3 151 Level     fdb51000.avsd-plus, fdb50400.vdpu
+ 35:          0          0          0          0          0          0          0          0     GICv3 150 Level     fdb50800.iommu
+ 36:          0          0          0          0          0          0          0          0     GICv3 146 Level     fdb60f00.iommu, rga3_core0
+ 37:          0          0          0          0          0          0          0          0     GICv3 147 Level     fdb70f00.iommu, rga3_core1
+ 38:          0          0          0          0          0          0          0          0     GICv3 148 Level     rga2
+ 39:          0          0          0          0          0          0          0          0     GICv3 161 Level     fdb90000.jpegd
+ 40:          0          0          0          0          0          0          0          0     GICv3 162 Level     fdb90480.iommu
+ 41:          0          0          0          0          0          0          0          0     GICv3 154 Level     fdba0000.jpege-core
+ 42:          0          0          0          0          0          0          0          0     GICv3 153 Level     fdba0800.iommu
+ 43:          0          0          0          0          0          0          0          0     GICv3 156 Level     fdba4000.jpege-core
+ 44:          0          0          0          0          0          0          0          0     GICv3 155 Level     fdba4800.iommu
+ 45:          0          0          0          0          0          0          0          0     GICv3 158 Level     fdba8000.jpege-core
+ 46:          0          0          0          0          0          0          0          0     GICv3 157 Level     fdba8800.iommu
+ 47:          0          0          0          0          0          0          0          0     GICv3 160 Level     fdbac000.jpege-core
+ 48:          0          0          0          0          0          0          0          0     GICv3 159 Level     fdbac800.iommu
+ 49:          0          0          0          0          0          0          0          0     GICv3 149 Level     fdbb0800.iommu, fdbb0000.iep
+ 50:          0          0          0          0          0          0          0          0     GICv3 133 Level     fdbd0000.rkvenc-core
+ 51:          0          0          0          0          0          0          0          0     GICv3 131 Level     fdbdf000.iommu
+ 52:          0          0          0          0          0          0          0          0     GICv3 132 Level     fdbdf000.iommu
+ 53:          0          0          0          0          0          0          0          0     GICv3 136 Level     fdbe0000.rkvenc-core
+ 54:          0          0          0          0          0          0          0          0     GICv3 134 Level     fdbef000.iommu
+ 55:          0          0          0          0          0          0          0          0     GICv3 135 Level     fdbef000.iommu
+ 56:          0          0          0          0          0          0          0          0     GICv3 127 Level     fdc38100.rkvdec-core
+ 57:          0          0          0          0          0          0          0          0     GICv3 128 Level     fdc38700.iommu
+ 58:          0          0          0          0          0          0          0          0     GICv3 129 Level     fdc48100.rkvdec-core
+ 59:          0          0          0          0          0          0          0          0     GICv3 130 Level     fdc48700.iommu
+ 60:          0          0          0          0          0          0          0          0     GICv3 141 Level     fdca0000.iommu
+ 61:          0          0          0          0          0          0          0          0     GICv3 163 Level     rkisp_hw
+ 62:          0          0          0          0          0          0          0          0     GICv3 165 Level     rkisp_hw
+ 63:          0          0          0          0          0          0          0          0     GICv3 166 Level     rkisp_hw
+ 64:          0          0          0          0          0          0          0          0     GICv3 164 Level     fdcb7f00.iommu
+ 65:          0          0          0          0          0          0          0          0     GICv3 167 Level     rkisp_hw
+ 66:          0          0          0          0          0          0          0          0     GICv3 169 Level     rkisp_hw
+ 67:          0          0          0          0          0          0          0          0     GICv3 170 Level     rkisp_hw
+ 68:          0          0          0          0          0          0          0          0     GICv3 168 Level     fdcc7f00.iommu
+ 69:          0          0          0          0          0          0          0          0     GICv3 187 Level     rkcifhw
+ 70:          0          0          0          0          0          0          0          0     GICv3 145 Level     fdce0800.iommu
+ 71:          0          0          0          0          0          0          0          0     GICv3 175 Level     rockchip-mipi-csi2-hw
+ 72:          0          0          0          0          0          0          0          0     GICv3 176 Level     rockchip-mipi-csi2-hw
+ 73:          0          0          0          0          0          0          0          0     GICv3 177 Level     rockchip-mipi-csi2-hw
+ 74:          0          0          0          0          0          0          0          0     GICv3 178 Level     rockchip-mipi-csi2-hw
+ 75:          0          0          0          0          0          0          0          0     GICv3 179 Level     rockchip-mipi-csi2-hw
+ 76:          0          0          0          0          0          0          0          0     GICv3 180 Level     rockchip-mipi-csi2-hw
+ 77:          0          0          0          0          0          0          0          0     GICv3 181 Level     rockchip-mipi-csi2-hw
+ 78:          0          0          0          0          0          0          0          0     GICv3 182 Level     rockchip-mipi-csi2-hw
+ 79:          0          0          0          0          0          0          0          0     GICv3 183 Level     rockchip-mipi-csi2-hw
+ 80:          0          0          0          0          0          0          0          0     GICv3 184 Level     rockchip-mipi-csi2-hw
+ 81:          0          0          0          0          0          0          0          0     GICv3 185 Level     rockchip-mipi-csi2-hw
+ 82:          0          0          0          0          0          0          0          0     GICv3 186 Level     rockchip-mipi-csi2-hw
+ 83:        662          0          0          0          0          0      79282          0     GICv3 188 Level     fdd97e00.iommu, fdd90000.vop
+ 85:          0          0          0          0          0          0          0          0     GICv3 217 Level     i2s
+ 86:          0          0          0          0          0          0          0          0     GICv3 199 Level     fde20000.dsi
+ 87:          0          0          0          0          0          0          0          0     GICv3 193 Level     fde50000.dp
+ 88:          0          0          0          0          0          0          0          0     GICv3 201 Level     fde80000.hdmi
+ 90:          0          0          0          0          0          0          0          0     GICv3 203 Level     fde80000.hdmi
+ 91:          0          0          0          0          0          0          0          0     GICv3 204 Level     fde80000.hdmi
+ 92:          0          0          0          0          0          0          0          0     GICv3 392 Level     dw-hdmi-qp-hpd
+ 93:          0          0          0          0          0          0          0          0     GICv3 305 Level     ahci[fe210000.sata]
+ 94:          0          0          0          0          0          0          0          0     GICv3 235 Level     dw-mci
+ 95:       9056       6142          0          0          0          0          0          0     GICv3 237 Level     mmc0
+ 97:          0          0          0          0          0          0          0          0     GICv3 212 Level     i2s
+ 98:       1390          0          0          0          0          0          0          0     GICv3 118 Level     fea10000.dma-controller
+ 99:          0          0          0          0          0          0          0          0     GICv3 119 Level     fea10000.dma-controller
+100:          0          0          0          0          0          0          0          0     GICv3 120 Level     fea30000.dma-controller
+101:          0          0          0          0          0          0          0          0     GICv3 121 Level     fea30000.dma-controller
+102:          0          0          0          0          0          0          0          0     GICv3 374 Level     can0
+103:         66          0          0          0          0          0          0          0     GICv3 350 Level     fea90000.i2c
+104:          0          0          0          0          0          0          0          0     GICv3 351 Level     feaa0000.i2c
+105:          1          0          0          0          0          0          0          0     GICv3 352 Level     feab0000.i2c
+106:         39          0          0          0          0          0          0          0     GICv3 353 Level     feac0000.i2c
+107:         90          0          0          0          0          0          0          0     GICv3 354 Level     fead0000.i2c
+108:       3734        632          0          0          0      17106          0          0     GICv3 360 Level     feb20000.spi
+112:          0          0          0          0          0          0          0          0     GICv3 429 Level     rockchip_thermal
+113:        119          0          0          0          0          0      14221          0     GICv3 430 Level     fec10000.saradc
+114:         72          0          0          0          0          0          0          0     GICv3 355 Level     fec80000.i2c
+115:        117          0          0          0          0          0          0          0     GICv3 356 Level     fec90000.i2c
+116:          0          0          0          0          0          0          0          0     GICv3 122 Level     fed10000.dma-controller
+117:          0          0          0          0          0          0          0          0     GICv3 123 Level     fed10000.dma-controller
+123:          0          0          0          0          0          0          0          0     GICv3 426 Level     rockchip_usb2phy
+125:          0          0          0          0          0          0          0          0     GICv3 218 Level     i2s
+126:          0          0          0          0          0          0          0          0     GICv3 219 Level     i2s
+127:          0          0          0          0          0          0          0          0     GICv3 194 Level     fde60000.dp
+128:          0          0          0          0          0          0          0          0     GICv3 205 Level     fdea0000.hdmi
+130:          0          0          0          0          0          0          0          0     GICv3 207 Level     fdea0000.hdmi
+131:          0          0          0          0          0          0          0          0     GICv3 208 Level     fdea0000.hdmi
+132:          0          0          0          0          0          0          0          0     GICv3 393 Level     dw-hdmi-qp-hpd
+134:          0          0          0          0          2          0          0          0     GICv3 468 Level     rk_hdmirx-hdmi
+135:          0          0          0          0          0          0          0          0     GICv3 211 Level     rk_hdmirx-dma
+146:          0          0          0          0          0          0          0          0     GICv3 259 Level     eth0
+147:          0          0          0          0          0          0          0          0     GICv3 258 Level     eth0
+148:          0          0          0          0          0          0          0          0     GICv3 266 Level     eth1
+149:          0          0          0          0          0          0          0          0     GICv3 265 Level     eth1
+150:          0          0          0          0          0          0          0        316     GICv3 455 Edge      debug-signal
+151:        855          0          0          0          0          0          0          0     GICv3 365 Level     debug
+152:          0          0          0          0          0          0          0          0     GICv3 140 Level     av1d-master
+155:          0          0          0          0          0          0          0          0  rockchip_gpio_irq   7 Level     rk806
+156:          0          0          0          0          0          0          0          0     rk806   0 Edge      rk805_pwrkey_fall
+157:          0          0          0          0          0          0          0          0     rk806   1 Edge      rk805_pwrkey_rise
+158:          0          0          0          0          0          0          0          0     rk806   7 Level     rk806_vb_low
+159:          0          0          0          0          0          0          0          0     GICv3 252 Level     dwc3
+160:          0          0          0          0          0          0          0          0     GICv3 254 Level     xhci-hcd:usb5
+162:          0          0          0          0          0          0          0          0  rockchip_gpio_irq  14 Level     fsc_interrupt_int_n
+163:          0          0          0          0          0          0          0          0  rockchip_gpio_irq  27 Level     fsc_interrupt_int_n
+164:          0          0          0          0          0          0          0          0  rockchip_gpio_irq   8 Level     rtc-pcf8563
+165:          0          0          0          0          0          0          0          0  rockchip_gpio_irq  29 Edge      rk_hdmirx-5v
+166:          0          0          0          0          0          0          0          0  rockchip_gpio_irq  20 Edge      headset_detect
+IPI0:     33668      20096      61614      94593        575        762       1183        689       Rescheduling interrupts
+IPI1:      6220      21644      14629      28348      11662       2183       7300       1351       Function call interrupts
+IPI2:         0          0          0          0          0          0          0          0       CPU stop interrupts
+IPI3:         0          0          0          0          0          0          0          0       CPU stop (for crash dump) interrupts
+IPI4:       649       1201       2046        506       1601        777        333        632       Timer broadcast interrupts
+IPI5:       289        172        345       1647        347        265        120       1196       IRQ work interrupts
+IPI6:         0          0          0          0          0          0          0          0       CPU wake-up interrupts
+Err:          0

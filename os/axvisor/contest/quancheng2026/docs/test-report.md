@@ -321,6 +321,23 @@ claim. It intentionally overcommits the 2-vCPU Linux guest; the important
 result is that the RTOS periodic probe, QCZ1 protocol and AI closed loop still
 finish under this heavier Linux pressure.
 
+### Physical-Board Native Linux Pressure Baseline
+
+The final test set includes a bounded physical-platform reference collected on
+an ATK-DLRK3588B V1.1 RK3588 board running factory Buildroot native Linux.
+Three FIFO-95 cyclictest scenarios used a 1 ms interval and 300,000 cycles each:
+
+| Scenario | p99 (us) | p99.9 (us) | Max (us) | Result |
+| --- | ---: | ---: | ---: | --- |
+| Idle | 17 | 20 | 95 | PASS |
+| Isolated stress | 8 | 15 | 76 | PASS |
+| Full stress | 26 | 30 | 1338 | PASS |
+
+The total was 900,000 cycles with zero histogram overflows. The source archive
+digest is `7af6beee3ef1ad2b041d25073a7df2a24e5ddca87d76d5e0bada46c0b5b6b974`.
+This row validates physical-board pressure measurement and evidence handling;
+it does not claim AxVisor or mixed guests ran on this exact board.
+
 ## AI Closed-Loop Result
 
 Representative integrated dual-guest AI result:

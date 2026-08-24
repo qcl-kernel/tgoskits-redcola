@@ -32,6 +32,7 @@ REQUIRED_FILES = [
     "docs/second-version-submission-status.md",
     "docs/second-version-submission-message.md",
     "docs/realtime-evaluation.md",
+    "docs/physical-board-native-linux-baseline.md",
     "docs/task-one-realtime-core-claim.md",
     "docs/task-one-30-point-checklist.md",
     "docs/task-one-second-version-plan.md",
@@ -77,6 +78,9 @@ REQUIRED_FILES = [
     "evidence-summaries/axvm-host-test-latestdev8e39-summary.txt",
     "evidence-summaries/final-demo-latestdev8e39-head17ee-summary.md",
     "evidence-summaries/task-three-second-metric-latestdev-summary.md",
+    "evidence-summaries/physical-board-atk-dlrk3588-native-linux-summary.csv",
+    "evidence-summaries/physical-board-atk-dlrk3588-native-linux-summary.md",
+    "evidence-summaries/physical-board-atk-dlrk3588-native-linux-archive.sha256",
 ]
 
 STARRY_REQUIRED_FILES = [

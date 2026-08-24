@@ -95,6 +95,7 @@ Main evidence through the 2026-08-14 first-version checkpoint:
 - AxVisor current-head 4-worker TAP/tcpdump overcommit proof: `TASK_ONE_CURRENT_HEAD_LONG_TAP_PROOF=PASS`; 4 Linux stress workers on a 2-vCPU Linux guest, `30000` Linux periodic samples, RTOS p99/max `1821568 / 31444800 ns`, UDP `20/20`, QCZ1 `10/10`, AI `10/10`, retransmits `0` and tcpdump captured/dropped `88/0`.
 - Latest-dev Linux guest CPU-isolation matrix: `TASK_ONE_SECOND_VERSION_MATRIX=PASS`; the periodic probe is pinned to guest CPU 0 and two pressure workers to guest CPU 1, both 0/2-worker rows use `3000` samples at `10 ms`, and UDP `20/20`, QCZ1 `10/10`, AI `10/10` remain successful.
 - Latest-dev isolated stability repeat: `3/3 PASS` with 9,000 Linux periodic samples, UDP `60/60`, QCZ1 `30/30`, AI `30/30`, and zero QCZ1 retransmits. See `results/task-one-latestdev-isolated-p10ms-stability-3x-summary.md`.
+- Physical-board native Linux baseline: ATK-DLRK3588B/RK3588, `900000` total cyclictest cycles, idle p99/max `17/95 us`, isolated-stress p99/max `8/76 us`, full-stress p99/max `26/1338 us`, and zero histogram overflows. This is a bounded native-Linux reference, not AxVisor-on-RK3588 evidence.
 - Submission design entry: `docs/design.md` summarizes the system architecture, guest configuration, AxVisor modification boundary, protocol, isolation design, AI deployment and reproducibility commands.
 - Submission test entry: `docs/test-report.md` summarizes startup validation, communication reliability, realtime comparison, AI closed-loop metrics, stability results and artifact preflight checks.
 - Reviewer traceability entry: `docs/scorecard-traceability.md` maps each contest requirement and scoring area to the current redcola evidence set.
@@ -114,6 +115,7 @@ Main evidence through the 2026-08-14 first-version checkpoint:
   - round 2: `6437349e481dd3b5282abe27a34085e4a0d26b214cd7a88478ff7532446f7a16`
   - round 3: `38aac4038f06ae1731125cea46e6afce0b18d0cc5f0845ef7a562676a8cc97f5`
 - Latest short final-demo rehearsal archive SHA256: `064e37dca1aec17cc6e7e3169aa80ebb4987a3920978073e5e9cf825b0618eb7` (`20/20` plain UDP, `10/10` QCZ1 reliable UDP, `10/10` AI control, Linux `2` vCPUs online, tcpdump kernel drops `0`).
+- Physical-board source archive SHA256: `7af6beee3ef1ad2b041d25073a7df2a24e5ddca87d76d5e0bada46c0b5b6b974`.
 
 External evidence references:
 
@@ -159,6 +161,8 @@ docs/
   demo-video-script.md                5-minute final demo recording script.
   e1000_axvisor.md                    AxVisor-hosted Zephyr e1000 evidence.
   realtime-evaluation.md              Task-One realtime comparison and conclusions.
+  physical-board-native-linux-baseline.md
+                                      Bounded RK3588 native-Linux pressure baseline.
   starryos-bonus.md                   Separate StarryOS bonus evidence boundary.
   core-patch-review.md                AxVisor core patch split and risk notes.
   pr-boundary.md                      PR staging boundary and patch grouping notes.
@@ -180,11 +184,21 @@ scripts/
   qc_ai_control_combined_probe.py      Plain echo + AI control probe.
   analyze_dual_guest_realtime.py       Latency/reliability report generator for dual-guest evidence.
   analyze_zephyr_latency_measure.py    Zephyr latency_measure report generator.
+  analyze_physical_board_cyclictest.py
+                                      Rebuild physical-board latency summaries.
   run_axvisor_dual_guest_qcz1_ai.sh    Full AxVisor Linux/Zephyr dual-guest reproduction.
   run_native_zephyr_latency_baseline.sh
   run_native_zephyr_mgmt_stack_2048_nogdb_validation.sh
   run_native_zephyr_serial_validation_campaign.sh
 results/
+  physical-board-atk-dlrk3588-native-linux/
+                                      Raw board platform and cyclictest JSON records.
+  physical-board-atk-dlrk3588-native-linux-summary.csv
+                                      Machine-readable board latency summary.
+  physical-board-atk-dlrk3588-native-linux-summary.md
+                                      Human-readable board baseline analysis.
+  physical-board-atk-dlrk3588-native-linux-archive.sha256
+                                      Digest of the retained source archive.
   CURRENT_STATUS_2026-07-26.md
   realtime-comparison.csv
   stability/2026-07-27-stress2-3x/stability-summary.md

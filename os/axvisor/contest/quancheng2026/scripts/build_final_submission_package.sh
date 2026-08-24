@@ -206,6 +206,7 @@ doc_files=(
     second-version-submission-status.md
     second-version-submission-message.md
     realtime-evaluation.md
+    physical-board-native-linux-baseline.md
     task-one-realtime-core-claim.md
     task-one-reviewer-defense-qna.md
     task-one-30-point-checklist.md
@@ -262,6 +263,9 @@ summary_files=(
     "results/axvm-host-test-latestdev8e39-summary.txt"
     "results/final-demo-latestdev8e39-head17ee-summary.md"
     "results/task-three-second-metric-latestdev-summary.md"
+    "results/physical-board-atk-dlrk3588-native-linux-summary.csv"
+    "results/physical-board-atk-dlrk3588-native-linux-summary.md"
+    "results/physical-board-atk-dlrk3588-native-linux-archive.sha256"
     "results/realtime-comparison.csv"
     "results/stability/2026-07-27-stress2-3x/stability-summary.md"
 )

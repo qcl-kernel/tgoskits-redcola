@@ -1,0 +1,7 @@
+stress-ng: info:  [1615] setting to a 310 second (5 mins, 10.00 secs) run per stressor
+stress-ng: info:  [1615] dispatching hogs: 7 cpu, 1 vm
+stress-ng: info:  [1615] successful run completed in 310.12s (5 mins, 10.12 secs)
+stress-ng: info:  [1615] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+stress-ng: info:  [1615]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: info:  [1615] cpu              262504    310.03   1908.65      0.04       846.71         137.53
+stress-ng: info:  [1615] vm              3170531    310.03    255.13      4.09     10226.68       12231.04
