@@ -10,7 +10,7 @@ standard Linux non-RT guest.
 | Item | Evidence |
 | --- | --- |
 | Contest role | StarryOS non-RT guest bonus evidence for the redcola AxVisor contest submission. |
-| Private repo PR | Submitted as PR #2 in `qcl-kernel/tgoskits-redcola`. |
+| Private repo PR | Final latest-`dev` submission is PR #3 in `qcl-kernel/tgoskits-redcola`; PR #2 is retained as historical evidence. |
 | Main delivery link | The AxVisor Linux/RTOS mixed-system delivery remains in PR #1 under `os/axvisor/contest/quancheng2026/`. |
 | Runtime environment | StarryOS QEMU guest runs the AI-control app as a Linux-user-mode program. |
 | QEMU machine | AArch64 `virt,gic-version=3`, matching the GIC route expected by current StarryOS on QEMU. |
@@ -43,7 +43,7 @@ For final submission, cite this PR together with the main AxVisor artifact PR:
 
 ```text
 Main AxVisor artifact: qcl-kernel/tgoskits-redcola#1
-StarryOS bonus artifact: qcl-kernel/tgoskits-redcola#2
+StarryOS bonus artifact: qcl-kernel/tgoskits-redcola#3
 Bonus path: apps/starry/qemu/redcola-ai-control/
 ```
 
@@ -119,7 +119,7 @@ REDCOLA_STARRY_AI_DONE
 Before referencing this bonus PR in the final contest package, verify that the
 recorded evidence includes:
 
-- the branch name `contest/starry-redcola-ai-bonus-clean-20260731`;
+- the branch name `contest/starry-redcola-ai-bonus-final-20260824`;
 - the path `apps/starry/qemu/redcola-ai-control/`;
 - the QEMU command `cargo xtask starry app qemu -t qemu/redcola-ai-control --arch aarch64`;
 - the AArch64 machine argument `virt,gic-version=3`;
