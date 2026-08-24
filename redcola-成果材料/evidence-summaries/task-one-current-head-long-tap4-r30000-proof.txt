@@ -1,0 +1,14 @@
+TASK_ONE_CURRENT_HEAD_LONG_TAP_PROOF=PASS
+source_branch=
+source_head=91cb7c0fc00d579d62528a3c967e5efd3cc57836
+linux_rt_samples=30000
+linux_stress_workers=4
+net_mode=tap
+evidence_root=/tmp/t1ltap-20260814_215018
+summary_csv=/tmp/t1ltap-20260814_215018/task-one-second-version-summary.csv
+summary_md=/tmp/t1ltap-20260814_215018/task-one-second-version-summary.md
+5c3627bd69ea700d4d58d4aaba3711b211593b3102c58deae8ef85c87192e38c  /tmp/t1ltap-20260814_215018/task-one-second-version-summary.csv
+41856e5599dddfcc0152da7b63897283619851ff4308621423de161c92166253  /tmp/t1ltap-20260814_215018/task-one-second-version-summary.md
+persisted_evidence_root=/home/kali/qc-evidence/t1-current-head-long-tap-20260814_215018
+5c3627bd69ea700d4d58d4aaba3711b211593b3102c58deae8ef85c87192e38c  /home/kali/qc-evidence/t1-current-head-long-tap-20260814_215018/task-one-second-version-summary.csv
+41856e5599dddfcc0152da7b63897283619851ff4308621423de161c92166253  /home/kali/qc-evidence/t1-current-head-long-tap-20260814_215018/task-one-second-version-summary.md

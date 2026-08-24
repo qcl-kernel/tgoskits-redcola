@@ -1,0 +1,14 @@
+redcola AxVM host-test validation
+
+Date: 2026-08-21
+Official dev base: 0340ed6bfa36cedd543d48f515e751ccc5a379bf
+
+Targeted PCI interrupt-map test:
+cargo test -p axvm --features host-test pci_interrupt_map_parent_sources_are_added_to_passthrough_routes -- --nocapture
+Result: 1 passed; 0 failed
+
+Full AxVM host-test library suite:
+cargo test -p axvm --features host-test --lib
+Result: 296 passed; 0 failed
+
+AXVM_FULL_HOST_TEST=PASS
