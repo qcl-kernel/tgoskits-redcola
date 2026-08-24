@@ -223,6 +223,29 @@ the overrun of a 1 ms `k_busy_wait` loop. The integrated AxVisor script also
 requires plain UDP, QCZ1 reliable UDP, AI control, tcpdump and final guest
 markers to pass in the same run.
 
+## Physical-Board Native Linux Pressure Baseline
+
+An ATK-DLRK3588B V1.1 physical board provides a native-Linux reference for
+pressure sensitivity. The board uses RK3588 with 8 AArch64 CPUs and 7.7 GiB of
+RAM, factory Buildroot 2021.11, Linux 5.10.160,
+`CONFIG_PREEMPT_VOLUNTARY=y`, and `CONFIG_HZ=300`.
+
+`cyclictest` ran at FIFO priority 95 with a 1 ms period, CPU 7 as the probe CPU,
+CPU 6 as the main CPU, and 300,000 cycles in each scenario.
+
+| Scenario | Avg (us) | p99 (us) | p99.9 (us) | Max (us) |
+| --- | ---: | ---: | ---: | ---: |
+| Idle | 7.41 | 17 | 20 | 95 |
+| Isolated stress | 2.40 | 8 | 15 | 76 |
+| Full stress | 9.30 | 26 | 30 | 1338 |
+
+All three histograms had zero overflows. Full-system pressure raised the worst
+observed latency to 1338 us, while constrained workload placement produced a
+76 us maximum in this run. The latter is an observed platform result and not a
+general isolation guarantee. This evidence is native Linux, not AxVisor or an
+RTOS on RK3588. Full method and raw-evidence links are in
+`docs/physical-board-native-linux-baseline.md`.
+
 ## Native Zephyr Baseline
 
 | Metric | Result |

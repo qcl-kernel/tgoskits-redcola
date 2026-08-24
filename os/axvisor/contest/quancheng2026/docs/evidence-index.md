@@ -120,6 +120,22 @@ worst observed Linux P99/max: 8.753 / 127.734 ms
 See `results/task-one-latestdev-isolated-p10ms-stability-3x-summary.md` for the
 per-round table and the nested-QEMU interpretation boundary.
 
+## Physical-Board Native Linux Baseline
+
+The final evidence set includes a physical ATK-DLRK3588B/RK3588 native-Linux
+pressure reference:
+
+- Claim boundary and method: `docs/physical-board-native-linux-baseline.md`
+- Raw platform and cyclictest JSON: `results/physical-board-atk-dlrk3588-native-linux/`
+- Machine-readable summary: `results/physical-board-atk-dlrk3588-native-linux-summary.csv`
+- Human-readable summary: `results/physical-board-atk-dlrk3588-native-linux-summary.md`
+- Source archive digest: `results/physical-board-atk-dlrk3588-native-linux-archive.sha256`
+- Deterministic analyzer: `scripts/analyze_physical_board_cyclictest.py`
+
+The result covers 900,000 cyclictest cycles with zero histogram overflows.
+It is explicitly a native-Linux platform baseline, not AxVisor-on-RK3588 or
+mixed-guest hardware validation.
+
 ## Reviewer Reading Order
 
 1. `docs/final-defense-brief-cn.md` for the one-page Chinese final defense

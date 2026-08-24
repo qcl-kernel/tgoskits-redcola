@@ -30,11 +30,13 @@ ready for review from the boundaries that should not be overclaimed.
 | Before/after latency data | Ready, with visible outliers | Hub 0/1/2-worker rows show RTOS p99 improvement; the 2-worker max outlier is reported rather than hidden. TAP 0/2-worker rows add packet capture with tcpdump `88/0`. |
 | Empty/stress/long-pressure coverage | Ready | Evidence covers 0/1/2-worker comparison, 4-worker overcommit boundary, `30000`-sample long hub/TAP rows and exact-head 3-run 2-worker stability. |
 | Native RTOS baseline | Ready | Native Zephyr latency baseline records `47` metrics and `PROJECT EXECUTION SUCCESSFUL`, with measurement caveats documented. |
+| Physical-board pressure baseline | Ready, bounded claim | ATK-DLRK3588B native Linux contributes 900,000 cyclictest cycles across idle, isolated-stress and full-stress scenarios with zero histogram overflows. |
 
-Remaining boundary: hardware-board validation and a certified hard-real-time
-kernel claim are intentionally outside this checkpoint. The submission defends
-a reproducible AxVisor timer/interrupt realtime-support path for the mixed
-Linux/RTOS prototype.
+Remaining boundary: AxVisor mixed-guest deployment on this exact RK3588 board
+and a certified hard-real-time kernel claim are intentionally outside this
+checkpoint. The submission defends a reproducible AxVisor timer/interrupt
+realtime-support path for the mixed Linux/RTOS prototype and adds a clearly
+bounded physical-platform native-Linux pressure reference.
 
 ## Scoring Coverage
 
@@ -44,7 +46,7 @@ Linux/RTOS prototype.
 | Substantive AxVisor key-mechanism modification | `8` | The landed support anchor is PR `rcore-os/tgoskits#1770`, commit `024ecca10a4240a84b2c24bed2dc2361a6043d3e`, covering physical timer state virtualization, per-vCPU timer state, expiry routing and cross-CPU timer cancellation. | `docs/task-one-realtime-core-claim.md`, `docs/core-patch-review.md`, upstream PR `#1770` | Main contest PR `#1` keeps artifact code separate; core changes are tracked through the merged upstream support PR. |
 | Multi-vCPU Linux guest configuration | `4` | The dual-guest runs keep Linux at `2` vCPUs and Zephyr as the RTOS guest while the network and AI loops stay active. | `docs/design.md`, `docs/network-topology.md`, `docs/task-one-score-summary.md`, runtime summaries with `QC_DUAL_GUEST_LINUX_INIT=PASS` | Physical CPU binding is documented at the QEMU/AxVisor prototype level; hardware-board binding can be refined if RK3576 validation is added later. |
 | Before/after realtime data and worst-case visibility | `5` | 10000-sample hub before/after rows cover 0/1/2-worker pressure points, with p99/max values and outliers preserved. TAP before/after rows add packet-captured 0/2-worker proof. Current-head 30000-sample 2-worker hub/TAP rows and 4-worker hub/TAP overcommit rows extend the long-pressure stability evidence. Recorded 2026-08-15 checkpoint head `746042293` adds a 3-run 2-worker repeat, and recorded head `a9ceb7dc` adds an additional 30000-sample 2-worker hub proof that is included in the package manifest. | `results/task-one-before-after-hub-summary.csv`, `results/task-one-before-after-tap-summary.csv`, `results/task-one-current-head-long-hub-r30000-summary.csv`, `results/task-one-current-head-long-hub4-r30000-summary.csv`, `results/task-one-current-head-long-tap-r30000-summary.csv`, `results/task-one-current-head-long-tap4-r30000-summary.csv`, `results/task-one-head746-2w-hub-stability-r30000-summary.csv`, `results/task-one-head-a9ce-long-hub-r30000-summary.csv`, `docs/task-one-score-summary.md` | The 2-worker after-side RTOS max outlier is reported openly and is not hidden behind only p99 numbers. |
-| Empty and stress-pressure scenarios | `4` | Evidence includes 0-worker no-pressure, 1-worker middle pressure, 2-worker pressure and 4-worker overcommit boundary rows, plus the recorded 2026-08-15 head `746042293` 2-worker stability repeat (`3/3 PASS`) and a 4-worker TAP/tcpdump overcommit row. | `docs/task-one-score-summary.md`, `docs/second-version-reviewer-quickstart.md`, `results/task-one-head746-2w-hub-stability-r30000-summary.md`, `results/stability/2026-07-27-stress2-3x/stability-summary.md` | The 4-worker rows are treated as 2-vCPU Linux overcommit boundary and stability/completion proof, not the primary latency-improvement claim. |
+| Empty and stress-pressure scenarios | `4` | Evidence includes 0-worker no-pressure, 1-worker middle pressure, 2-worker pressure and 4-worker overcommit boundary rows, plus the recorded 2026-08-15 head `746042293` 2-worker stability repeat (`3/3 PASS`), a 4-worker TAP/tcpdump overcommit row, and a physical RK3588 native-Linux idle/isolated/full-pressure baseline. | `docs/task-one-score-summary.md`, `docs/second-version-reviewer-quickstart.md`, `docs/physical-board-native-linux-baseline.md`, `results/task-one-head746-2w-hub-stability-r30000-summary.md`, `results/physical-board-atk-dlrk3588-native-linux-summary.md` | The 4-worker rows are treated as 2-vCPU Linux overcommit boundary and stability/completion proof. The physical-board data is a native-Linux platform reference, not an AxVisor improvement claim. |
 | Native RTOS baseline and reproducibility | `5` | Native Zephyr latency baseline records 47 metrics and `PROJECT EXECUTION SUCCESSFUL`; reproduction docs keep commands, scripts and artifact boundaries explicit. | `docs/realtime-evaluation.md`, `docs/reproduce.md`, `docs/test-report.md`, `scripts/run_task_one_second_version_matrix.sh`, `scripts/run_task_one_before_after_tap_matrix.sh` | Native Zephyr does not include AxVisor VM exits or Linux load, so it is used as a platform sanity baseline rather than a one-to-one virtualized latency replacement. |
 
 ## Evidence Strength By Requirement
@@ -57,6 +59,7 @@ Linux/RTOS prototype.
 | Recorded long pressure proof | Recorded 2026-08-15 head `746042293` has a 3-run, 2-worker, 30000-sample hub stability repeat. Prior head `b706a02c` has a 30000-sample hub matrix at 0/1/2/4 Linux workers. Earlier 30000-sample TAP/tcpdump rows from head `91cb7c0f` provide packet capture and 4-worker TAP overcommit evidence. Recorded head `a9ceb7dc` has an additional 30000-sample 2-worker hub proof with UDP `20/20`, QCZ1 `10/10`, AI `10/10` and no missing markers. |
 | Packet-captured network proof | TAP before/after matrix reports tcpdump captured/dropped `88/0` in every row. |
 | Stress and stability | 1/2/4-worker pressure rows and 2-worker stability campaign. |
+| Physical-platform pressure | RK3588 native-Linux cyclictest: 300,000 cycles per scenario, zero histogram overflows, with idle, isolated-stress and full-stress tails reported. |
 | RTOS baseline | Native Zephyr latency benchmark with 47 metrics. |
 | Reproducibility | `docs/reproduce.md`, result CSV summaries and final package verifier. |
 
@@ -84,6 +87,9 @@ Plain UDP: 20/20 PASS
 QCZ1 reliable UDP: 10/10 PASS
 AI control: 10/10 PASS
 Native Zephyr baseline: 47 metrics, PROJECT EXECUTION SUCCESSFUL
+RK3588 native Linux idle p99/max: 17 / 95 us
+RK3588 native Linux isolated-stress p99/max: 8 / 76 us
+RK3588 native Linux full-stress p99/max: 26 / 1338 us
 ```
 
 ## Review Path
@@ -97,7 +103,9 @@ For a fast task-one review:
    TAP rows.
 5. Check `docs/realtime-evaluation.md` for the native Zephyr baseline and
    measurement caveats.
-6. Use `docs/reproduce.md` for the commands and runtime artifact contract.
+6. Read `docs/physical-board-native-linux-baseline.md` for the bounded RK3588
+   native-Linux pressure reference.
+7. Use `docs/reproduce.md` for the commands and runtime artifact contract.
 
 ## What Is Not Claimed
 
@@ -107,5 +115,5 @@ For a fast task-one review:
   AxVisor-hosted mixed-system workload.
 - StarryOS bonus evidence is evaluated separately from this task-one realtime
   score.
-- Hardware-board validation remains a future extension unless a later final
-  submission adds RK3576 or another board evidence set.
+- The ATK-DLRK3588 result is native Linux only; it is not AxVisor-on-RK3588 or
+  mixed-guest hardware validation.

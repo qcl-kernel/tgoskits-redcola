@@ -109,6 +109,27 @@ results/task-one-second-version-summary.csv
 results/task-one-second-version-summary.md
 ```
 
+## Physical-Board Native Linux Pressure Baseline
+
+The final evidence set adds a physical-platform reference from an
+ATK-DLRK3588B V1.1 (RK3588, 8 CPUs, 7.7 GiB) running its factory Buildroot
+native Linux image. `cyclictest` used FIFO priority 95, a 1 ms interval, CPU 7
+for the measurement thread, CPU 6 for the main thread, and 300,000 cycles per
+scenario.
+
+| Scenario | p99 (us) | p99.9 (us) | Max (us) | Histogram overflows |
+| --- | ---: | ---: | ---: | ---: |
+| Idle | 17 | 20 | 95 | 0 |
+| Isolated stress | 8 | 15 | 76 | 0 |
+| Full stress | 26 | 30 | 1338 | 0 |
+
+The full-stress maximum is 14.08 times the idle maximum, exposing the physical
+platform's worst observed pressure tail rather than hiding it. This is a
+native-Linux pressure baseline only. It is not AxVisor running on RK3588 and is
+not used as a substitute for the virtualized before/after rows. See
+`docs/physical-board-native-linux-baseline.md` and
+`results/physical-board-atk-dlrk3588-native-linux-summary.csv`.
+
 ## Scorecard Mapping
 
 | Task-one scoring detail | Evidence now available |

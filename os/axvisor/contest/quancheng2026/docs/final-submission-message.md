@@ -34,7 +34,7 @@ https://github.com/qcl-kernel/tgoskits-redcola
 - Zephyr 原生 RTOS latency baseline、AxVisor 双 guest 周期任务数据、压力测试和稳定性结果；
 - pre-#1770 与当前分支的 before/after 实时性对比、TAP/tcpdump before/after 矩阵，以及 4-worker 过载边界证据；
 - StarryOS 非实时 guest AI-control 加分项；
-- 设计文档、测试报告、复现说明、证据索引、评分追踪、5 分钟双终端演示视频和可验证最终提交包。
+- 设计文档、测试报告、复现说明、证据索引、评分追踪、5 分钟演示 PPT、配音稿、视频验收脚本和可验证最终提交包。
 
 关键验证结果：
 - 最新 dev 双 guest：Linux 2 vCPU，plain UDP 20/20 PASS，QCZ1 10/10 PASS，AI 10/10 PASS，最终 result=PASS；
@@ -45,18 +45,19 @@ https://github.com/qcl-kernel/tgoskits-redcola
 - AI control loop：10/10 PASS；
 - Linux guest：2 vCPU；
 - StarryOS bonus：REDCOLA_STARRY_QCZ1_PARITY_PASS、REDCOLA_STARRY_AI_CONTROL_PASS、REDCOLA_STARRY_AI_DONE。
-- 最终演示视频：`redcola-axvisor-demo.mp4`，300.067 秒，1920x1080，包含 Linux/RTOS 双终端动态演示，SHA256 `909bdc9f39527404ac12cccd9515caaf255be649a0de8e454c8541e297201bba`。
+- 演示视频：已有 300.067 秒、1920x1080 的排练版素材；最终提交以用户配音后的 MP4 及其重新计算 SHA256 为准。
 
 推荐审阅入口：
 1. os/axvisor/contest/quancheng2026/docs/evidence-index.md
 2. os/axvisor/contest/quancheng2026/docs/second-version-reviewer-quickstart.md
 3. os/axvisor/contest/quancheng2026/docs/scorecard-traceability.md
 4. os/axvisor/contest/quancheng2026/docs/task-one-score-summary.md
-5. os/axvisor/contest/quancheng2026/docs/task-two-three-score-summary.md
-6. os/axvisor/contest/quancheng2026/docs/design.md
-7. os/axvisor/contest/quancheng2026/docs/test-report.md
-8. os/axvisor/contest/quancheng2026/docs/reproduce.md
-9. os/axvisor/contest/quancheng2026/docs/starryos-bonus.md
+5. os/axvisor/contest/quancheng2026/docs/physical-board-native-linux-baseline.md
+6. os/axvisor/contest/quancheng2026/docs/task-two-three-score-summary.md
+7. os/axvisor/contest/quancheng2026/docs/design.md
+8. os/axvisor/contest/quancheng2026/docs/test-report.md
+9. os/axvisor/contest/quancheng2026/docs/reproduce.md
+10. os/axvisor/contest/quancheng2026/docs/starryos-bonus.md
 
 演示视频链接或附件说明：
 <待填写最终视频链接或附件说明>
@@ -88,6 +89,8 @@ the final video link and the final package SHA256:
 
 ```text
 最终材料已补充当前 head 的 30000-sample 长压力证据：hub-mode 和 TAP/tcpdump 均保留汇总；TAP 证明覆盖 Linux guest 2 vCPU、2 个与 4 个 Linux stress worker、Linux/RTOS TAP 网络，结果均保持 UDP 20/20 PASS、QCZ1 10/10 PASS、AI 10/10 PASS，tcpdump captured/dropped 为 88/0。最新 4-worker TAP 行记录 RTOS p99/max 为 1821568 / 31444800 ns，AI 端到端 mean/max 为 5277 / 15431 us。任务一第二版汇总入口为 results/task-one-second-version-summary.md，最终演示视频提示卡为 docs/final-video-cue-card-cn.md。
+
+另补充 ATK-DLRK3588B（RK3588）实机原生 Linux 周期延迟基线：3 个场景共 `900000` cycles，idle/隔离压力/全核压力最大延迟分别为 `95/76/1338 us`，histogram overflow 为 `0`。该证据仅作为物理平台压力参考，不宣称 AxVisor 已在该板运行。
 ```
 
 Current long TAP evidence roots:

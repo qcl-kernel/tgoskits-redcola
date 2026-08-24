@@ -25,18 +25,20 @@ For the current staged-review checkpoint, review the material in this order:
    timer/interrupt claim and its conservative before/after interpretation.
 9. `docs/task-one-30-point-checklist.md` for the task-one 30-point scoring
    coverage table.
-10. `docs/second-version-submission-status.md` for the current task-one
-   second-version status, TAP/tcpdump gate and exact matrix commands.
-11. `docs/engineering-innovation-20-point-checklist.md` for engineering
-   completeness and system innovation scoring.
-12. `docs/design.md` for the system architecture, guest roles, isolation
-   boundary and AI/control deployment.
-13. `docs/test-report.md` for the startup, communication, realtime, AI and
-   stability PASS gates.
-14. `docs/reproduce.md` for the clean-environment build/run entry points and
-   runtime artifact contract.
-15. `docs/starryos-bonus.md` for the separate StarryOS AI-control bonus scope.
-16. This scorecard for requirement-to-evidence mapping.
+10. `docs/physical-board-native-linux-baseline.md` for the conservative
+    ATK-DLRK3588B native-Linux pressure reference and claim boundary.
+11. `docs/second-version-submission-status.md` for the current task-one
+    second-version status, TAP/tcpdump gate and exact matrix commands.
+12. `docs/engineering-innovation-20-point-checklist.md` for engineering
+    completeness and system innovation scoring.
+13. `docs/design.md` for the system architecture, guest roles, isolation
+    boundary and AI/control deployment.
+14. `docs/test-report.md` for the startup, communication, realtime, AI and
+    stability PASS gates.
+15. `docs/reproduce.md` for the clean-environment build/run entry points and
+    runtime artifact contract.
+16. `docs/starryos-bonus.md` for the separate StarryOS AI-control bonus scope.
+17. This scorecard for requirement-to-evidence mapping.
 
 The main branch is `contest/axvisor-2026` in the private repository
 `qcl-kernel/tgoskits-redcola`; use PR `#1` for the moving branch head and the
@@ -78,6 +80,7 @@ paths.
 | Describe vCPU/physical CPU binding, memory, devices, interrupts and boot args | Guest and topology docs describe Linux `2` vCPU setup, the per-run isolated TAP/bridge network, virtio-net, Zephyr e1000, interrupt route and `noirqdebug` run. | See `docs/design.md`, `docs/network-topology.md` and `docs/realtime-evaluation.md`. |
 | Measure periodic jitter, scheduling latency, interrupt responsiveness, max latency and stability | Linux 1 ms periodic probe, RTOS 1 ms periodic probe, 0/1/2/4-worker stress runs, 2-worker 3-run stability campaign, before/after 10000-sample hub matrix, current-head 30000-sample 2-worker hub and TAP/tcpdump rows, current-head 30000-sample 4-worker hub and TAP/tcpdump overcommit rows and TAP/tcpdump before/after matrix are recorded. | Main comparison tables are `results/realtime-comparison.csv`, `results/task-one-before-after-hub-summary.csv`, `results/task-one-before-after-tap-summary.csv`, `results/task-one-current-head-long-hub-r30000-summary.csv`, `results/task-one-current-head-long-hub4-r30000-summary.csv`, `results/task-one-current-head-long-tap-r30000-summary.csv` and `results/task-one-current-head-long-tap4-r30000-summary.csv`; the current-head long TAP rows record `TASK_ONE_CURRENT_HEAD_LONG_TAP_PROOF=PASS`, `88/0` tcpdump counters and AI mean/max `2501 / 5014 us` for 2 workers plus `5277 / 15431 us` for 4 workers; the 4-worker hub row records UDP `20/20`, QCZ1 `10/10`, AI `10/10`, RTOS p99/max `1143440 / 5372880 ns` and AI mean/max `3428 / 7887 us`; `docs/task-one-score-summary.md` gives the compact delta view; stability summary is `results/stability/2026-07-27-stress2-3x/stability-summary.md`; long before/after rows, the long current-head pressure rows, the 4-worker boundary and the completed TAP/tcpdump gate are tracked in `docs/task-one-second-version-plan.md` and `docs/second-version-submission-status.md`. |
 | Compare against native RTOS baseline | Native Zephyr latency baseline passed with 47 metrics, including context switch `2400 ns` and max primitive latency `46703 ns`. | Platform differences and measurement limits are documented in `docs/realtime-evaluation.md`. |
+| Add physical-platform pressure reference | ATK-DLRK3588B native Linux cyclictest: `900000` total cycles; idle/isolated/full-pressure maximum latency `95/76/1338 us`; zero histogram overflows. | `docs/physical-board-native-linux-baseline.md` and generated summaries. This is a host-platform reference only, not AxVisor-on-RK3588 evidence. |
 | Provide reproducible branch, images, configs, commands and scripts | Reproduction commands and evidence paths are listed in `docs/reproduce.md`. | Large images and raw evidence archives stay outside the source commit and are referenced by path/SHA256. |
 
 ## Task Two: Linux/RTOS IP Communication
@@ -107,7 +110,7 @@ paths.
 | Required material | Current location | Status |
 | --- | --- | --- |
 | Design document | `docs/design.md` plus linked protocol/topology/realtime docs | READY |
-| Test document | `docs/test-report.md` plus `results/realtime-comparison.csv` and stability summary | READY |
+| Test document | `docs/test-report.md`, `docs/physical-board-native-linux-baseline.md`, `results/realtime-comparison.csv`, physical-board summaries and stability summary | READY |
 | Source code | Private contest repository `qcl-kernel/tgoskits-redcola`; main PR `#1`; StarryOS bonus PR `#2`; core vTimer/GIC/IRQ support in upstream via PR `#1770` | SUBMITTED |
 | Reproduction instructions | `docs/reproduce.md` | READY |
 | Demo video | `docs/demo-video-script.md`, `docs/final-video-cue-card-cn.md`, PowerPoint and narration package | FINAL RECORDING PENDING; the prior packaged MP4 is a superseded rehearsal fixture, and the selected user-narrated MP4 must pass `verify_demo_video.py` plus strict fresh-unzip package verification before upload |
@@ -134,5 +137,6 @@ paths.
 1. Keep the private contest repository `qcl-kernel/tgoskits-redcola` as the staged-review source of truth.
 2. Use private PR `#1` for the main AxVisor artifact and private PR `#2` for the StarryOS bonus artifact.
 3. Keep the current task-one long TAP/hub evidence stable, including the 4-worker TAP/tcpdump overcommit row; rerun only if code or runtime artifacts change before the 2026-08-21 second-version milestone.
-4. Record or confirm the final 5-minute demo video using `docs/demo-video-script.md` and `docs/final-video-cue-card-cn.md`.
-5. Package the final platform submission with PR links, design/test/reproduce docs, evidence SHA256 values and the final demo video before 2026-08-24.
+4. Preserve the ATK-DLRK3588B cyclictest result as a conservative native-Linux physical-platform reference; do not present it as AxVisor-on-RK3588 evidence.
+5. Record or confirm the final 5-minute demo video using `docs/demo-video-script.md` and `docs/final-video-cue-card-cn.md`.
+6. Package the final platform submission with PR links, design/test/reproduce docs, evidence SHA256 values and the final demo video before 2026-08-24.

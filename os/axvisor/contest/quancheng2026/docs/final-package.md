@@ -18,6 +18,7 @@ capture files stay outside git.
 | Test document | Yes | `docs/test-report.md` |
 | Reproduction guide | Yes | `docs/reproduce.md` |
 | Evidence index | Yes | `docs/evidence-index.md` |
+| Physical-board native Linux baseline | Yes | `docs/physical-board-native-linux-baseline.md` plus packaged summary CSV/Markdown and raw-archive SHA256 |
 | Scorecard mapping | Yes | `docs/scorecard-traceability.md` |
 | Submission message | Yes | `docs/final-submission-message.md` |
 | Chinese final defense brief | Yes | `docs/final-defense-brief-cn.md` |
@@ -37,6 +38,11 @@ records the exact main branch head used for that build, and the sibling
 `.zip.sha256` file is the authoritative archive hash. The final hash is
 intentionally not hard-coded here because any later documentation or video
 refresh changes the archive digest.
+
+The final package manifest also requires the conservative ATK-DLRK3588B
+native-Linux cyclictest baseline document, compact CSV/Markdown summaries and
+the external raw-archive SHA256. The raw histogram archive remains outside git
+and is identified by that hash.
 
 The 2026-08-22 clean-head pre-final dry run, with the final presentation and
 narration script but before adding the user-narrated video, reports:
