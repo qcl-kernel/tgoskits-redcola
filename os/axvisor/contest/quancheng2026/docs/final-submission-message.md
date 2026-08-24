@@ -1,8 +1,6 @@
 # Final Submission Message
 
-This note provides a concise message template for the final platform submission
-or organizer follow-up. Fill in the final video link and final package SHA256
-before the 2026-08-24 final deadline.
+This note provides the finalized message for the 2026-08-24 submission.
 
 ## Chinese Template
 
@@ -17,15 +15,15 @@ https://github.com/qcl-kernel/tgoskits-redcola
    范围：2 个 AxVM PCI interrupt-map 解析文件 + os/axvisor/contest/quancheng2026/
    链接：https://github.com/qcl-kernel/tgoskits-redcola/pull/1
 
-2. StarryOS 加分项 PR #2：contest/starry-redcola-ai-bonus-clean-20260731
+2. 最终 StarryOS 加分项 PR #3：contest/starry-redcola-ai-bonus-final-20260824
    目录：apps/starry/qemu/redcola-ai-control/
-   链接：https://github.com/qcl-kernel/tgoskits-redcola/pull/2
+   链接：https://github.com/qcl-kernel/tgoskits-redcola/pull/3
 
 3. AxVisor core 支撑补丁：rcore-os/tgoskits#1770，已合入官方 dev
    链接：https://github.com/rcore-os/tgoskits/pull/1770
 
 本次材料主要包含：
-- 基于官方 dev `0340ed6bfa36cedd543d48f515e751ccc5a379bf` 的最终同步与验证；
+- 基于官方最新 dev `3a3af51675c9811dafd842db644cf915084ca9fe` 的最终同步与验证；
 - AxVM PCI `interrupt-map` 透传 IRQ 解析修复，定向测试 `1/1 PASS`，AxVM host-test `296/296 PASS`；
 - AxVisor 双 guest Linux/Zephyr RTOS 混合部署与复现脚本；
 - Linux/RTOS IPv4/UDP 通信链路；
@@ -45,7 +43,8 @@ https://github.com/qcl-kernel/tgoskits-redcola
 - AI control loop：10/10 PASS；
 - Linux guest：2 vCPU；
 - StarryOS bonus：REDCOLA_STARRY_QCZ1_PARITY_PASS、REDCOLA_STARRY_AI_CONTROL_PASS、REDCOLA_STARRY_AI_DONE。
-- 演示视频：已有 300.067 秒、1920x1080 的排练版素材；最终提交以用户配音后的 MP4 及其重新计算 SHA256 为准。
+- 演示视频：`redcola-成果材料/video/redcola-axvisor-demo.mp4`，300.067 秒、1920x1080；SHA256 为 `909bdc9f39527404ac12cccd9515caaf255be649a0de8e454c8541e297201bba`。
+- 实体板证据：`redcola-成果材料/evidence-raw/redcola-board-evidence-20260824.tar.gz`；SHA256 为 `7af6beee3ef1ad2b041d25073a7df2a24e5ddca87d76d5e0bada46c0b5b6b974`。
 
 推荐审阅入口：
 1. os/axvisor/contest/quancheng2026/docs/evidence-index.md
@@ -59,11 +58,11 @@ https://github.com/qcl-kernel/tgoskits-redcola
 9. os/axvisor/contest/quancheng2026/docs/reproduce.md
 10. os/axvisor/contest/quancheng2026/docs/starryos-bonus.md
 
-演示视频链接或附件说明：
-<待填写最终视频链接或附件说明>
+演示视频位于私有仓库成果目录：
+redcola-成果材料/video/redcola-axvisor-demo.mp4
 
-最终提交包 SHA256：
-<待填写最终压缩包或视频 SHA256>
+成果文件完整性清单：
+redcola-成果材料/SHA256SUMS.txt
 ```
 
 ## PR Links
@@ -75,8 +74,8 @@ https://github.com/qcl-kernel/tgoskits-redcola
 Main PR:
 https://github.com/qcl-kernel/tgoskits-redcola/pull/1
 
-StarryOS bonus PR:
-https://github.com/qcl-kernel/tgoskits-redcola/pull/2
+Final StarryOS bonus PR:
+https://github.com/qcl-kernel/tgoskits-redcola/pull/3
 
 Merged AxVisor core support:
 https://github.com/rcore-os/tgoskits/pull/1770
@@ -120,8 +119,8 @@ proof.
 
 Before sending the final message:
 
-1. Replace the video placeholder with the final video link or attachment note.
-2. Replace the SHA256 placeholder with the final package/video digest.
-3. Confirm private PR `#1` and `#2` point to the intended latest heads.
-4. Confirm no generated images, raw logs, credentials or temporary bundles are
+1. Confirm private PR `#1` and final StarryOS PR `#3` point to the intended heads.
+2. Confirm `SUBMISSION-BASE.txt` records official latest `dev`.
+3. Confirm `SHA256SUMS.txt` verifies every submitted artifact.
+4. Confirm no credentials, runtime images, kernels, build caches or temporary bundles are
    included in the uploaded package.

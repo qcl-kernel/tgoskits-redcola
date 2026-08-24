@@ -4,8 +4,14 @@ https://github.com/qcl-kernel/tgoskits-redcola
 Main AxVisor contest PR:
 https://github.com/qcl-kernel/tgoskits-redcola/pull/1
 
-StarryOS bonus PR:
+Final StarryOS bonus PR (latest official dev):
+https://github.com/qcl-kernel/tgoskits-redcola/pull/3
+
+Historical StarryOS bonus PR (preserved, superseded by PR #3):
 https://github.com/qcl-kernel/tgoskits-redcola/pull/2
 
 Merged AxVisor core support:
 https://github.com/rcore-os/tgoskits/pull/1770
+
+Official StarryOS implementation PR:
+https://github.com/rcore-os/tgoskits/pull/1813

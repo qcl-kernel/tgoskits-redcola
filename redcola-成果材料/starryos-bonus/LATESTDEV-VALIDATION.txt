@@ -1,22 +1,31 @@
-REDCOLA STARRYOS LATEST-DEV VALIDATION
+REDCOLA STARRYOS FINAL LATEST-DEV INTEGRATION VALIDATION
 
-date=2026-08-21
-upstream_dev=0340ed6bfa36cedd543d48f515e751ccc5a379bf
-command=cargo xtask starry app qemu -t qemu/redcola-ai-control --arch aarch64
-qemu_machine=virt,gic-version=3
-exit_status=0
+date=2026-08-24
+official_upstream_dev=3a3af51675c9811dafd842db644cf915084ca9fe
+private_pr=https://github.com/qcl-kernel/tgoskits-redcola/pull/3
+branch=contest/starry-redcola-ai-bonus-final-20260824
+submission_head=b9e6473b0873da24b61520a4135a39385d3b6886
+merge_base=3a3af51675c9811dafd842db644cf915084ca9fe
+scope=apps/starry/qemu/redcola-ai-control/
 
-REDCOLA_STARRY_AI_BEGIN guest=StarryOS role=non_rt_guest model=fixed_point_mlp_policy hidden=4 samples=8 pid=2 prebuild_marker=prebuild-ok
-REDCOLA_STARRY_CONTROL_SUMMARY manual_abs_error=1013 ai_abs_error=0 max_ai_error=0 mean_infer_us=131
-REDCOLA_STARRY_QCZ1_FRAME magic=QCZ1 version=1 type=CONTROL_SET header_len=28 payload_len=12 seq=9001 sample_id=1 checksum=0x1ac5c2ff frame_len=40
+Latest-dev integration checks:
+- merge base equals current official upstream/dev
+- git diff --check passed
+- branch scope contains only the StarryOS demo path
+- shell syntax and prebuild hook passed (prebuild-ok)
+
+Runtime command:
+cargo xtask starry app qemu -t qemu/redcola-ai-control --arch aarch64
+
+Representative QEMU runtime evidence from the unchanged demo source:
+REDCOLA_STARRY_AI_BEGIN guest=StarryOS role=non_rt_guest model=fixed_point_mlp_policy hidden=4 samples=8
+REDCOLA_STARRY_CONTROL_SUMMARY manual_abs_error=1013 ai_abs_error=0 max_ai_error=0
+REDCOLA_STARRY_QCZ1_FRAME magic=QCZ1 version=1 type=CONTROL_SET header_len=28 payload_len=12 seq=9001 sample_id=1
 REDCOLA_STARRY_QCZ1_PARITY_PASS setpoint_milli=930 ai_score_milli=1000 sample_id=1
-REDCOLA_STARRY_AI_CONTROL_PASS samples=8 manual_abs_error=1013 ai_abs_error=0 mean_infer_us=131
+REDCOLA_STARRY_AI_CONTROL_PASS samples=8 manual_abs_error=1013 ai_abs_error=0
 REDCOLA_STARRY_AI_DONE
-REDCOLA_STARRY_LATESTDEV0340_QEMU=PASS
 
-qemu_log_sha256=c0a4db06c8625ca40d8ed060a5d3259c918b1e4f6b28878a593656b559ea2d16
-summary_sha256=e6164b25703183dd793fba3e601e3fd3a0ec179c47810fd385d83f735c7867b7
-evidence_directory=/home/kali/qc-evidence/starry-latestdev0340-20260821
-
-Generated rootfs images, build outputs, QEMU logs and temporary toolchain
-wrappers are intentionally excluded from source control.
+Runtime evidence boundary:
+- The final branch is rebased on official dev 3a3af516.
+- The representative QEMU run was recorded before the final documentation-only rebase.
+- Generated rootfs images, build outputs and temporary toolchains are excluded.
